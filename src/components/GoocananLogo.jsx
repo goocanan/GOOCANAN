@@ -120,7 +120,7 @@ export default function GoocananLogo({
   textClassName = '',
   gradientMark = true,
   withGlow = false,
-  subtitle = '3D PRINT & GooOS'
+  subtitle = '3D PRINT • HARDWARE • GooOS'
 }) {
   if (variant === 'mark') {
     return (
@@ -147,14 +147,29 @@ export default function GoocananLogo({
           className={markClassName || "w-16 h-16"} 
           gradient={gradientMark} 
         />
-        <GoocananWordmark 
-          className={textClassName || "h-5 w-auto text-slate-900 dark:text-white"} 
-        />
-        {subtitle && (
-          <span className="text-[11px] font-mono tracking-[0.25em] uppercase text-slate-500 dark:text-slate-400">
-            {subtitle}
-          </span>
-        )}
+        <div className="flex flex-col items-center gap-2 w-[185px] max-w-[185px]">
+          <GoocananWordmark 
+            className={textClassName || "h-[18px] w-[185px] text-slate-900 dark:text-white block"} 
+          />
+          {subtitle && (
+            <div className="w-[185px] max-w-[185px] flex items-center justify-between text-[8px] sm:text-[8.5px] font-mono font-semibold uppercase text-slate-500 dark:text-slate-400 leading-none">
+              {subtitle.includes('•') ? (
+                subtitle.split('•').map((part, index, arr) => (
+                  <React.Fragment key={index}>
+                    <span>{part.trim()}</span>
+                    {index < arr.length - 1 && (
+                      <span className="text-brand-500/70 dark:text-brand-400/70 text-[6px] font-bold">•</span>
+                    )}
+                  </React.Fragment>
+                ))
+              ) : (
+                <span className="w-full text-center tracking-[0.22em] indent-[0.22em]">
+                  {subtitle}
+                </span>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     );
   }
@@ -173,17 +188,30 @@ export default function GoocananLogo({
         )}
       </div>
 
-      {/* Official Typography */}
-      <div className="flex flex-col">
+      {/* Official Typography & Perfectly Balanced Tagline Lockup */}
+      <div className="flex flex-col justify-between h-[38px] w-[185px] max-w-[185px] py-0.5 select-none">
         <div className="flex items-center">
           <GoocananWordmark 
-            className="h-4 sm:h-[18px] w-auto text-slate-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors" 
+            className="h-[18px] w-[185px] text-slate-900 dark:text-white group-hover:text-brand-500 dark:group-hover:text-brand-400 transition-colors block" 
           />
         </div>
         {subtitle && (
-          <span className="text-[10px] tracking-[0.2em] uppercase font-mono text-slate-500 dark:text-slate-400 mt-0.5">
-            {subtitle}
-          </span>
+          <div className="w-[185px] max-w-[185px] flex items-center justify-between text-[8px] sm:text-[8.5px] font-mono font-semibold uppercase text-slate-500 dark:text-slate-400 leading-none">
+            {subtitle.includes('•') ? (
+              subtitle.split('•').map((part, index, arr) => (
+                <React.Fragment key={index}>
+                  <span>{part.trim()}</span>
+                  {index < arr.length - 1 && (
+                    <span className="text-brand-500/70 dark:text-brand-400/70 text-[6px] font-bold">•</span>
+                  )}
+                </React.Fragment>
+              ))
+            ) : (
+              <span className="w-full text-center tracking-[0.22em] indent-[0.22em]">
+                {subtitle}
+              </span>
+            )}
+          </div>
         )}
       </div>
     </div>

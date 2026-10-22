@@ -31,7 +31,7 @@ export default function Footer() {
           {/* Brand Info & Vision (Col 1-4) */}
           <div className="lg:col-span-4 space-y-4">
             <Link to="/" className="inline-block group">
-              <GoocananLogo variant="horizontal" subtitle="3D PRINTING &amp; TECH" />
+              <GoocananLogo variant="horizontal" subtitle="3D PRINT • HARDWARE • GooOS" />
             </Link>
             
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">

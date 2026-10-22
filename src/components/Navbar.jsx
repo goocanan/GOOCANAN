@@ -57,7 +57,7 @@ export default function Navbar() {
           
           {/* Official GOOCANAN Logo */}
           <Link to="/" className="flex items-center group">
-            <GoocananLogo variant="horizontal" subtitle="3D PRINT &amp; TECH" />
+            <GoocananLogo variant="horizontal" subtitle="3D PRINT • HARDWARE • GooOS" />
           </Link>
 
           {/* Desktop Navigation */}
