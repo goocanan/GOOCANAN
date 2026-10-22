@@ -396,30 +396,35 @@ export default function HomePage() {
             
             <div className="lg:col-span-8 space-y-4">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent-500/20 text-accent-400 font-mono text-xs font-semibold border border-accent-500/30">
-                <Cpu className="w-3.5 h-3.5 animate-pulse" />
-                <span>Teknologi Internal Eksklusif: GooOS</span>
+                <img 
+                  src="/brand/app_icon_gradient.png" 
+                  alt="GooOS" 
+                  className="w-4 h-4 rounded object-contain"
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+                <span>Ekosistem Operasi Internal: GooOS Suite</span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                Bagaimana Goocanan Menjamin Cetakan 99.8% Sukses?
+                Bagaimana Goocanan Menjamin Efisiensi &amp; Presisi Cetak?
               </h2>
 
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
-                Setiap printer di workshop kami terhubung ke <strong>GooOS</strong> — sistem operasi pintar buatan kami yang memantau suhu chamber, mendeteksi cacat spaghetti dengan kamera AI secara real-time, dan membagi antrean cetak secara otomatis.
+                Setiap proses di workshop kami didukung oleh <strong>GooOS</strong> — sistem operasi terpadu meliputi <strong>3DFlow</strong> (telemetri armada printer &amp; 128 spul filamen), <strong>GOO-Studio</strong> (smart batching plate nesting &amp; simulasi margin), serta <strong>GooPrint</strong> (WebCAD parametrik 3D).
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2 text-xs font-mono text-slate-300">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Real-time AI Camera Vision</span>
+                  <CheckCircle2 className="w-4 h-4 text-rose-400" />
+                  <span>3DFlow Live Telemetry &amp; Inventory</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Cloud Instant Slicing Engine</span>
+                  <CheckCircle2 className="w-4 h-4 text-indigo-400" />
+                  <span>GOO-Studio Smart Batching (94% Density)</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                  <span>Client Live Progress Stream</span>
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400" />
+                  <span>GooPrint WebCAD &amp; G-Code Bridge</span>
                 </div>
               </div>
             </div>

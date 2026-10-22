@@ -1,56 +1,73 @@
 import React, { useState, useEffect } from 'react';
 import { 
   Activity, 
-  Cpu, 
-  Eye, 
   Layers, 
-  Terminal, 
+  Box, 
+  ShoppingBag, 
+  Sparkles, 
+  Zap, 
+  Flame, 
+  Thermometer, 
+  Package, 
+  CreditCard, 
   Sliders, 
-  CheckCircle2, 
-  AlertTriangle, 
   Play, 
   Pause, 
-  RefreshCw, 
-  UploadCloud, 
-  Flame, 
-  Thermometer,
-  HardDrive,
-  ShieldCheck,
-  Maximize2
+  Download, 
+  Check, 
+  CheckCircle2, 
+  ArrowRight, 
+  RefreshCw,
+  FolderKanban,
+  Calculator,
+  Grid
 } from 'lucide-react';
+import { GOO_APPS } from '../data/goocananData';
 
 export default function GooOSInteractiveMockup() {
-  const [activeTab, setActiveTab] = useState('fleet'); // 'fleet', 'vision', 'slicer', 'telemetry'
-  const [isSimulatingFailure, setIsSimulatingFailure] = useState(false);
-  const [printerSpeed, setPrinterSpeed] = useState(300); // mm/s
-  const [isPaused, setIsPaused] = useState(false);
-  const [nozzleTemp, setNozzleTemp] = useState(215);
+  const [activeApp, setActiveApp] = useState('3dflow'); // '3dflow', 'goo-studio', 'gooprint', 'gooai'
+  
+  // 3DFlow state
+  const [nozzleTemp, setNozzleTemp] = useState(218);
   const [bedTemp, setBedTemp] = useState(60);
-  const [uploadedFileName, setUploadedFileName] = useState('bracket-chassis-v3.step');
-  const [isSlicing, setIsSlicing] = useState(false);
+  const [crealityProgress, setCrealityProgress] = useState(78);
+  const [isPaused, setIsPaused] = useState(false);
 
-  // Small live fluctuation effect for realism
+  // GOO-Studio state
+  const [targetMargin, setTargetMargin] = useState(40); // %
+  const [selectedBatchPlate, setSelectedBatchPlate] = useState('plate-1');
+
+  // GooPrint state
+  const [frameType, setFrameType] = useState('Mini'); // 'Mini', 'Square', 'Wide'
+  const [customText, setCustomText] = useState('GOOCANAN · 2026');
+  const [includeStand, setIncludeStand] = useState(true);
+  const [frameColor, setFrameColor] = useState('#ffffff');
+  const [isExporting, setIsExporting] = useState(false);
+
+  // Small live fluctuation effect for telemetry realism
   useEffect(() => {
     const interval = setInterval(() => {
-      setNozzleTemp(prev => Math.min(217, Math.max(213, prev + (Math.random() > 0.5 ? 0.4 : -0.4))));
-    }, 2000);
+      setNozzleTemp(prev => Math.min(221, Math.max(216, prev + (Math.random() > 0.5 ? 0.3 : -0.3))));
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
-  const handleSimulateSlicing = () => {
-    setIsSlicing(true);
+  const handleSimulateExport = () => {
+    setIsExporting(true);
     setTimeout(() => {
-      setIsSlicing(false);
-    }, 1200);
+      setIsExporting(false);
+    }, 1000);
   };
 
   return (
-    <div className="relative rounded-3xl bg-slate-950 border border-brand-500/40 shadow-glow-combo overflow-hidden font-sans text-slate-200">
+    <div className="relative rounded-3xl bg-slate-950 border border-brand-500/30 shadow-2xl overflow-hidden font-sans text-slate-200">
       
-      {/* OS Title Bar */}
-      <div className="bg-slate-900/90 border-b border-slate-800 px-4 py-3 flex flex-wrap items-center justify-between gap-3 backdrop-blur-md">
+      {/* =========================================================================
+          OS TOP HEADER BAR (Matching gooos / GooNavbar)
+      ========================================================================= */}
+      <div className="bg-slate-900/95 border-b border-slate-800 px-4 py-3 flex flex-wrap items-center justify-between gap-3 backdrop-blur-md">
         
-        {/* Left: Window Controls & OS Brand */}
+        {/* Left: Brand & Suite Indicator */}
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-1.5">
             <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
@@ -58,392 +75,674 @@ export default function GooOSInteractiveMockup() {
             <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block"></span>
           </div>
           <div className="h-4 w-px bg-slate-700 mx-1" />
+          
           <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded bg-brand-500/20 text-brand-400 font-mono text-xs font-bold border border-brand-500/30">
-              GooOS v2.6-PRO
-            </span>
-            <span className="text-xs text-slate-400 font-mono hidden sm:inline">
-              Print Farm Controller &bull; Cluster ID: ID-JKT-01
-            </span>
+            <img 
+              src="/brand/app_icon_gradient.png" 
+              alt="GooOS" 
+              className="w-6 h-6 rounded-lg object-contain"
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-extrabold font-mono text-sm tracking-wider text-white">
+                GooOS
+              </span>
+              <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-brand-500/20 text-brand-400 border border-brand-500/30 font-semibold">
+                v2.4 Pro Suite
+              </span>
+            </div>
           </div>
         </div>
 
-        {/* Center: Interactive Tabs */}
-        <div className="flex items-center bg-slate-950 p-1 rounded-xl border border-slate-800 text-xs font-mono">
+        {/* Center: App Switcher Tabs (3DFlow, GOO-Studio, GooPrint, GooAI) */}
+        <div className="flex items-center bg-slate-950/80 p-1 rounded-xl border border-slate-800 text-xs font-mono">
           <button
-            onClick={() => setActiveTab('fleet')}
+            onClick={() => setActiveApp('3dflow')}
             className={`px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${
-              activeTab === 'fleet'
-                ? 'bg-brand-500 text-white font-bold shadow-sm'
+              activeApp === '3dflow'
+                ? 'bg-rose-500 text-white font-bold shadow-sm'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <Activity className="w-3.5 h-3.5" />
-            <span>Farm Fleet</span>
+            <span>⚡ 3DFlow</span>
+            <span className="hidden sm:inline text-[10px] opacity-80">(Farm Ops)</span>
           </button>
 
           <button
-            onClick={() => setActiveTab('vision')}
+            onClick={() => setActiveApp('goo-studio')}
             className={`px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${
-              activeTab === 'vision'
-                ? 'bg-brand-500 text-white font-bold shadow-sm'
+              activeApp === 'goo-studio'
+                ? 'bg-indigo-600 text-white font-bold shadow-sm'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <Eye className="w-3.5 h-3.5" />
-            <span>AI Vision Cam</span>
+            <span>📐 GOO-Studio</span>
+            <span className="hidden sm:inline text-[10px] opacity-80">(Batching)</span>
           </button>
 
           <button
-            onClick={() => setActiveTab('slicer')}
+            onClick={() => setActiveApp('gooprint')}
             className={`px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${
-              activeTab === 'slicer'
-                ? 'bg-brand-500 text-white font-bold shadow-sm'
+              activeApp === 'gooprint'
+                ? 'bg-cyan-600 text-white font-bold shadow-sm'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <Layers className="w-3.5 h-3.5" />
-            <span>Cloud Slicer</span>
+            <span>🎨 GooPrint</span>
+            <span className="hidden sm:inline text-[10px] opacity-80">(WebCAD)</span>
           </button>
 
           <button
-            onClick={() => setActiveTab('telemetry')}
+            onClick={() => setActiveApp('gooai')}
             className={`px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 ${
-              activeTab === 'telemetry'
-                ? 'bg-brand-500 text-white font-bold shadow-sm'
+              activeApp === 'gooai'
+                ? 'bg-purple-600 text-white font-bold shadow-sm'
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            <Sliders className="w-3.5 h-3.5" />
-            <span>Telemetri</span>
+            <span>✨ GooAI</span>
+            <span className="hidden sm:inline text-[10px] opacity-80">(Copilot)</span>
           </button>
         </div>
 
-        {/* Right: Live Status badge */}
+        {/* Right: Farm Live Pulse */}
         <div className="hidden md:flex items-center gap-2 text-xs font-mono">
           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-          <span className="text-emerald-400 font-medium">16/16 Nodes Sync (0ms ping)</span>
+          <span className="text-emerald-400 font-medium">3 Mesin Online &bull; Farm Active</span>
         </div>
       </div>
 
-      {/* Main OS Viewport */}
-      <div className="p-4 sm:p-6 min-h-[420px] bg-slate-950 tech-grid-pattern">
+      {/* =========================================================================
+          VIEWPORT CONTENT CONTAINER
+      ========================================================================= */}
+      <div className="p-4 sm:p-6 min-h-[460px] bg-slate-950 tech-grid-pattern">
         
-        {/* TAB 1: FLEET OVERVIEW */}
-        {activeTab === 'fleet' && (
-          <div className="space-y-4 animate-fadeIn">
+        {/* =========================================================================
+            APP 1: 3DFlow (Additive Manufacturing & Farm Operations)
+        ========================================================================= */}
+        {activeApp === '3dflow' && (
+          <div className="space-y-5 animate-fadeIn">
+            
+            {/* Top Metrics Row */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+              <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
+                  Inventaris Filamen
+                </span>
+                <div className="text-xl font-bold font-mono text-white mt-0.5">
+                  128 <span className="text-xs text-rose-400 font-normal">Spul (84.5 kg)</span>
+                </div>
+                <span className="text-[10px] text-slate-400 font-mono">+66 Item Aset Hardware</span>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
+                  Armada Printer
+                </span>
+                <div className="text-xl font-bold font-mono text-emerald-400 mt-0.5">
+                  3 Online <span className="text-xs text-slate-400 font-normal">(100% Ready)</span>
+                </div>
+                <span className="text-[10px] text-slate-400 font-mono">Creality Hi &bull; Bambu Lab</span>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
+                  Antrean Pesanan
+                </span>
+                <div className="text-xl font-bold font-mono text-brand-400 mt-0.5">
+                  69 Orders <span className="text-xs text-slate-400 font-normal">Tracking</span>
+                </div>
+                <span className="text-[10px] text-slate-400 font-mono">2 Sedang Dicetak &bull; 4 Antre</span>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
+                  Buku Kas &amp; Transaksi
+                </span>
+                <div className="text-xl font-bold font-mono text-white mt-0.5">
+                  474 <span className="text-xs text-emerald-400 font-normal">Catatan Ledger</span>
+                </div>
+                <span className="text-[10px] text-slate-400 font-mono">Shopee, Tokopedia &bull; Direct</span>
+              </div>
+            </div>
+
+            {/* Split Grid: Live Printer Telemetry (Left) & Spool Inventory + Orders (Right) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+              
+              {/* Left Column: Live Printers Fleet (Col 1-7) */}
+              <div className="lg:col-span-7 space-y-4">
+                <div className="flex items-center justify-between">
+                  <h5 className="text-xs font-mono font-bold uppercase tracking-wider text-rose-400 flex items-center gap-1.5">
+                    <Activity className="w-3.5 h-3.5" />
+                    Armada Printer &bull; Live Telemetri
+                  </h5>
+                  <span className="text-[11px] font-mono text-slate-400">
+                    Firmware: Klipper / Moonraker
+                  </span>
+                </div>
+
+                {/* Printer 1: Creality Hi (Active) */}
+                <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-rose-500/50 transition">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-mono font-bold text-white">Creality Hi 0.4 Nozzle</span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                        PRINTING
+                      </span>
+                    </div>
+                    <span className="text-xs font-mono font-bold text-rose-400">
+                      {crealityProgress}%
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-slate-300 font-mono mb-2">
+                    Job: <strong className="text-white">#ORD-68 Drone Arm Chassis (PA-CF)</strong> &bull; Layer 412/528
+                  </p>
+
+                  <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden mb-3">
+                    <div 
+                      className="h-full bg-gradient-to-r from-rose-500 to-amber-500 rounded-full transition-all duration-300"
+                      style={{ width: `${crealityProgress}%` }}
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-3 gap-2 text-xs font-mono text-slate-400 pt-2 border-t border-slate-800/80">
+                    <div className="flex items-center gap-1">
+                      <Flame className="w-3.5 h-3.5 text-orange-400" />
+                      <span>{nozzleTemp.toFixed(1)}°C (220°C)</span>
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <Thermometer className="w-3.5 h-3.5 text-rose-400" />
+                      <span>{bedTemp}°C (60°C)</span>
+                    </div>
+                    <div className="text-right text-slate-300">
+                      <span>±38m tersisa</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Printer 2: Bambu Lab X1C (Active) */}
+                <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 transition">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-mono font-bold text-white">Bambu Lab CoreXY</span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                        PRINTING
+                      </span>
+                    </div>
+                    <span className="text-xs font-mono font-bold text-emerald-400">
+                      92%
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-300 font-mono mb-2">
+                    Job: <strong className="text-white">#ORD-69 Polaroid Frame Mini + Stand</strong> &bull; PLA+ White
+                  </p>
+                  <div className="w-full h-2 bg-slate-800 rounded-full overflow-hidden mb-3">
+                    <div className="h-full bg-emerald-500 rounded-full" style={{ width: '92%' }} />
+                  </div>
+                  <div className="flex justify-between text-xs font-mono text-slate-400 pt-2 border-t border-slate-800/80">
+                    <span>Nozzle: 210°C &bull; Bed: 55°C</span>
+                    <span className="text-emerald-400">±11m tersisa (Finishing)</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Spool Inventory Gauge & Recent Orders (Col 8-12) */}
+              <div className="lg:col-span-5 space-y-4">
+                
+                {/* Spool Gauge Card */}
+                <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h5 className="text-xs font-mono font-bold uppercase tracking-wider text-rose-400">
+                      Spul Filamen Terpasang
+                    </h5>
+                    <span className="text-[10px] font-mono text-slate-400">Gauge Gramasi</span>
+                  </div>
+
+                  <div className="space-y-2.5 text-xs font-mono">
+                    <div>
+                      <div className="flex justify-between text-slate-300 mb-1">
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-600 inline-block"></span>
+                          eSun PLA+ Black
+                        </span>
+                        <span className="text-white font-bold">740g / 1000g</span>
+                      </div>
+                      <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                        <div className="h-full bg-slate-400 rounded-full" style={{ width: '74%' }} />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between text-slate-300 mb-1">
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span>
+                          Sunlu PETG Red
+                        </span>
+                        <span className="text-white font-bold">480g / 1000g</span>
+                      </div>
+                      <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                        <div className="h-full bg-rose-500 rounded-full" style={{ width: '48%' }} />
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between text-slate-300 mb-1">
+                        <span className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 inline-block"></span>
+                          PolyLite PA-CF (Carbon)
+                        </span>
+                        <span className="text-white font-bold">890g / 1000g</span>
+                      </div>
+                      <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                        <div className="h-full bg-cyan-400 rounded-full" style={{ width: '89%' }} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Recent Orders Pipeline */}
+                <div className="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <h5 className="text-xs font-mono font-bold uppercase tracking-wider text-rose-400">
+                      Antrean Pesanan Aktif
+                    </h5>
+                    <span className="text-[10px] font-mono text-emerald-400">Total 69 Orders</span>
+                  </div>
+
+                  <div className="space-y-1.5 text-xs font-mono">
+                    <div className="p-2 rounded-xl bg-slate-950 flex items-center justify-between border border-slate-800">
+                      <div>
+                        <span className="text-white font-bold block">#ORD-69 Polaroid Frame</span>
+                        <span className="text-[10px] text-slate-400">Klien: Amelia (Direct)</span>
+                      </div>
+                      <span className="px-2 py-0.5 rounded text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                        In-Progress
+                      </span>
+                    </div>
+
+                    <div className="p-2 rounded-xl bg-slate-950 flex items-center justify-between border border-slate-800">
+                      <div>
+                        <span className="text-white font-bold block">#ORD-68 Drone Arm Chassis</span>
+                        <span className="text-[10px] text-slate-400">Klien: Lab Robotika</span>
+                      </div>
+                      <span className="px-2 py-0.5 rounded text-[10px] bg-rose-500/20 text-rose-400 border border-rose-500/30">
+                        Printing
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        )}
+
+        {/* =========================================================================
+            APP 2: GOO-STUDIO (Design Engineering & Smart Batching)
+        ========================================================================= */}
+        {activeApp === 'goo-studio' && (
+          <div className="space-y-5 animate-fadeIn">
+            
+            {/* Header Metrics */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <div>
                 <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                  <Activity className="w-4 h-4 text-brand-400" />
-                  Cluster Armada Goocanan (Real-time Queue &amp; State)
+                  <Layers className="w-4 h-4 text-indigo-400" />
+                  GOO-Studio &bull; Smart Batching &amp; Multi-Part Nesting Slicer
                 </h4>
                 <p className="text-xs text-slate-400">
-                  Load-balancer membagi job secara cerdas berdasarkan material terpasang.
+                  14 Proyek Desain &bull; 265 Komponen STL &bull; 7 Pelat Cetak Ter-nesting
                 </p>
               </div>
-              <div className="flex items-center gap-2 text-xs font-mono">
-                <span className="text-slate-400">Total Produksi Hari Ini:</span>
-                <span className="text-emerald-400 font-bold">42 Part Selesai</span>
+
+              <div className="flex items-center gap-2 bg-slate-900 px-3 py-1.5 rounded-xl border border-slate-800 text-xs font-mono">
+                <span className="text-slate-400">Nesting Efficiency:</span>
+                <span className="text-indigo-400 font-bold">94.2% Bed Fill</span>
               </div>
             </div>
 
-            {/* Printers Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 pt-2">
-              {[
-                { name: 'Goo-Alpha 01', type: 'CoreXY High-Speed', job: 'Drone Arm PA-CF', progress: 84, time: '38m tersisa', temp: '250°C / 90°C', status: 'PRINTING', color: 'brand' },
-                { name: 'Goo-Titan 02', type: 'FDM Industrial 400', job: 'Maket Fasad Arch', progress: 45, time: '2j 14m tersisa', temp: '210°C / 60°C', status: 'PRINTING', color: 'accent' },
-                { name: 'Goo-Resin 8K', type: 'SLA Ultra Micron', job: 'Figur Karakter Master', progress: 92, time: '12m tersisa', temp: 'Chamber 28°C', status: 'PRINTING', color: 'brand' },
-                { name: 'Goo-Rapid 04', type: 'CoreXY 500mm/s', job: 'Standby - Auto Slicing', progress: 0, time: 'Antrean Siap', temp: 'Ready / Standby', status: 'IDLE', color: 'slate' }
-              ].map((printer, idx) => (
-                <div key={idx} className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-brand-500/50 transition">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-mono font-bold text-white">{printer.name}</span>
-                    <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full ${
-                      printer.status === 'PRINTING' ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'bg-slate-800 text-slate-400'
-                    }`}>
-                      {printer.status}
+            {/* Simulated 3D Printer Bed Plate Nesting Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              
+              {/* Virtual Bed Plate (Col 1-8) */}
+              <div className="lg:col-span-8 bg-slate-900/90 rounded-2xl p-5 border border-slate-800 space-y-4">
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <span className="text-slate-300 font-bold">
+                    Bed Plate #03: <span className="text-indigo-400">Drone Frame Multi-Part Nesting</span>
+                  </span>
+                  <span className="text-slate-400">Ukuran Bed: 256 x 256 mm</span>
+                </div>
+
+                {/* 2D/3D Nesting Bed Simulation */}
+                <div className="relative aspect-square max-h-[320px] w-full mx-auto rounded-2xl bg-slate-950 border-2 border-dashed border-indigo-500/40 p-4 flex flex-wrap content-start gap-2.5 overflow-hidden">
+                  {/* Grid lines */}
+                  <div className="absolute inset-0 bg-[radial-gradient(#312e81_1px,transparent_1px)] [background-size:24px_24px] opacity-40 pointer-events-none" />
+
+                  {/* Nested Parts */}
+                  <div className="relative z-10 w-36 h-28 rounded-xl bg-indigo-500/20 border border-indigo-500/60 p-2 flex flex-col justify-between text-[11px] font-mono text-indigo-300 shadow-glow-cyan">
+                    <span className="font-bold">Part 01: Chassis Base</span>
+                    <span className="text-[10px] text-slate-400">124g &bull; PA-CF</span>
+                  </div>
+
+                  <div className="relative z-10 w-24 h-28 rounded-xl bg-purple-500/20 border border-purple-500/60 p-2 flex flex-col justify-between text-[11px] font-mono text-purple-300">
+                    <span className="font-bold">Part 02: Arm R1</span>
+                    <span className="text-[10px] text-slate-400">38g</span>
+                  </div>
+
+                  <div className="relative z-10 w-24 h-28 rounded-xl bg-purple-500/20 border border-purple-500/60 p-2 flex flex-col justify-between text-[11px] font-mono text-purple-300">
+                    <span className="font-bold">Part 03: Arm L1</span>
+                    <span className="text-[10px] text-slate-400">38g</span>
+                  </div>
+
+                  <div className="relative z-10 w-44 h-20 rounded-xl bg-emerald-500/20 border border-emerald-500/60 p-2 flex flex-col justify-between text-[11px] font-mono text-emerald-300">
+                    <span className="font-bold">Part 04: Battery Mount Snap-Fit</span>
+                    <span className="text-[10px] text-slate-400">42g</span>
+                  </div>
+
+                  <div className="relative z-10 w-32 h-20 rounded-xl bg-amber-500/20 border border-amber-500/60 p-2 flex flex-col justify-between text-[11px] font-mono text-amber-300">
+                    <span className="font-bold">Part 05: FPV Camera Pod</span>
+                    <span className="text-[10px] text-slate-400">18g</span>
+                  </div>
+
+                  {/* Bed Corner Axis */}
+                  <span className="absolute bottom-2 left-2 text-[10px] font-mono text-slate-500">
+                    (0,0) Origin
+                  </span>
+                  <span className="absolute top-2 right-2 text-[10px] font-mono text-emerald-400 bg-emerald-500/20 px-2 py-0.5 rounded">
+                    Auto-Oriented &bull; Zero Collision
+                  </span>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between text-xs font-mono text-slate-400 pt-2 border-t border-slate-800">
+                  <span>Total Filament Diperlukan: <strong className="text-white">260 gram</strong></span>
+                  <span>Estimasi Cetak 1 Plate: <strong className="text-indigo-400">6 Jam 45 Menit</strong></span>
+                </div>
+              </div>
+
+              {/* Cost & Margin Simulator Card (Col 9-12) */}
+              <div className="lg:col-span-4 p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+                <div className="flex items-center justify-between">
+                  <h5 className="text-xs font-mono font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
+                    <Calculator className="w-3.5 h-3.5" />
+                    Kalkulator Margin GOO-Studio
+                  </h5>
+                </div>
+
+                <div className="space-y-3 text-xs font-mono">
+                  <div className="flex justify-between text-slate-300">
+                    <span>Biaya Bahan (PA-CF 260g):</span>
+                    <span className="text-white">Rp 312.000</span>
+                  </div>
+                  <div className="flex justify-between text-slate-300">
+                    <span>Listrik &amp; Mesin (6.75j):</span>
+                    <span className="text-white">Rp 27.000</span>
+                  </div>
+                  <div className="flex justify-between text-slate-300">
+                    <span>Upah Operator &amp; QC:</span>
+                    <span className="text-white">Rp 50.000</span>
+                  </div>
+
+                  <div className="pt-2 border-t border-slate-800">
+                    <div className="flex justify-between items-center mb-1.5">
+                      <span className="text-slate-400">Target Margin Laba:</span>
+                      <span className="text-indigo-400 font-bold">{targetMargin}%</span>
+                    </div>
+                    <input 
+                      type="range" 
+                      min="20" 
+                      max="70" 
+                      value={targetMargin}
+                      onChange={(e) => setTargetMargin(parseInt(e.target.value))}
+                      className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-500"
+                    />
+                  </div>
+
+                  <div className="p-3 rounded-xl bg-slate-950 border border-indigo-500/30 text-center">
+                    <span className="text-[11px] text-slate-400 block">Rekomendasi Harga Jual:</span>
+                    <span className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400 font-mono">
+                      Rp {Math.round(((312000 + 27000 + 50000) / (1 - targetMargin / 100)) / 1000) * 1000}
                     </span>
                   </div>
-                  <p className="text-[11px] text-slate-400">{printer.type}</p>
-                  
-                  <div className="my-3 space-y-1">
-                    <div className="flex justify-between text-[11px] font-mono text-slate-300">
-                      <span className="truncate">{printer.job}</span>
-                      <span className="text-brand-400 font-bold">{printer.progress}%</span>
-                    </div>
-                    <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-brand-500 to-accent-500 rounded-full transition-all duration-500" 
-                        style={{ width: `${printer.progress}%` }}
-                      />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-800/80">
-                    <span>{printer.temp}</span>
-                    <span className="text-slate-300">{printer.time}</span>
-                  </div>
                 </div>
-              ))}
-            </div>
 
-            {/* Quick Farm Log */}
-            <div className="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-xs font-mono flex items-center justify-between text-slate-400">
-              <div className="flex items-center gap-2">
-                <Terminal className="w-4 h-4 text-brand-400" />
-                <span className="text-slate-300">GooOS Log:</span>
-                <span className="text-slate-400 truncate">[12:14:02] Goo-Alpha 01 layer #412 verified with AI. No adhesion defect.</span>
-              </div>
-              <span className="text-brand-400 hidden sm:inline">100% Flow</span>
-            </div>
-          </div>
-        )}
-
-        {/* TAB 2: AI VISION & FAILURE PREVENTION */}
-        {activeTab === 'vision' && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 animate-fadeIn">
-            {/* Camera Viewport (Col 1-8) */}
-            <div className="lg:col-span-8 relative rounded-2xl bg-black border border-slate-800 overflow-hidden min-h-[280px] flex items-center justify-center">
-              {/* Simulated camera grid & feed */}
-              <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-40"></div>
-              
-              {/* Simulated 3D Print Object */}
-              <div className="relative z-10 flex flex-col items-center justify-center p-8 text-center">
-                <div className="relative w-44 h-44 rounded-xl border-2 border-dashed border-emerald-500/80 bg-emerald-500/10 flex items-center justify-center shadow-glow-emerald">
-                  {/* Bounding box AI tag */}
-                  <div className="absolute -top-3 left-2 bg-emerald-500 text-slate-950 font-mono text-[10px] font-extrabold px-1.5 py-0.5 rounded">
-                    LAYER #388: HEALTHY (99.8%)
-                  </div>
-                  <div className="text-center space-y-1">
-                    <Eye className="w-8 h-8 text-emerald-400 mx-auto animate-pulse" />
-                    <span className="text-xs font-mono text-emerald-300 font-bold block">No Spaghetti Detected</span>
-                    <span className="text-[10px] font-mono text-slate-400 block">Z-Hop: OK | Flow: 100.2%</span>
-                  </div>
-                  {/* Target Crosshair */}
-                  <div className="absolute w-4 h-4 border-t-2 border-l-2 border-emerald-400 top-2 left-2"></div>
-                  <div className="absolute w-4 h-4 border-t-2 border-r-2 border-emerald-400 top-2 right-2"></div>
-                  <div className="absolute w-4 h-4 border-b-2 border-l-2 border-emerald-400 bottom-2 left-2"></div>
-                  <div className="absolute w-4 h-4 border-b-2 border-r-2 border-emerald-400 bottom-2 right-2"></div>
-                </div>
-              </div>
-
-              {/* Camera Overlays */}
-              <div className="absolute top-3 left-3 flex items-center gap-2 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-lg text-[11px] font-mono border border-slate-700">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-                <span>CAM-01 CH-HD &bull; 60 FPS</span>
-              </div>
-              <div className="absolute bottom-3 right-3 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-lg text-[11px] font-mono text-slate-300 border border-slate-700">
-                Inference Latency: 42ms
-              </div>
-            </div>
-
-            {/* AI Control Panel (Col 9-12) */}
-            <div className="lg:col-span-4 space-y-4">
-              <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
-                <h5 className="text-xs font-mono font-bold uppercase tracking-wider text-brand-400">
-                  AI Model Configuration
-                </h5>
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-slate-300">Deteksi Spaghetti &amp; Gagal Adhesi:</span>
-                  <span className="text-emerald-400 font-mono font-bold">AKTIF</span>
-                </div>
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-slate-300">Auto-Pause on Failure:</span>
-                  <span className="text-brand-400 font-mono font-bold">ENABLED</span>
-                </div>
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-slate-300">Telegram/WA Bot Alert:</span>
-                  <span className="text-emerald-400 font-mono font-bold">CONNECTED</span>
-                </div>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-3">
-                <span className="text-xs font-mono text-slate-400 block">
-                  Uji Coba Respon Sistem:
-                </span>
                 <button
                   type="button"
-                  onClick={() => setIsPaused(!isPaused)}
-                  className={`w-full py-2.5 px-4 rounded-xl text-xs font-mono font-bold flex items-center justify-center gap-2 transition ${
-                    isPaused
-                      ? 'bg-amber-500 text-slate-950 hover:bg-amber-400'
-                      : 'bg-red-500/20 text-red-400 border border-red-500/40 hover:bg-red-500/30'
-                  }`}
+                  className="w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-mono text-xs font-bold transition flex items-center justify-center gap-1.5"
                 >
-                  {isPaused ? <Play className="w-4 h-4" /> : <Pause className="w-4 h-4" />}
-                  <span>{isPaused ? 'Lanjutkan Cetak (Resume)' : 'Simulasi Emergency Pause'}</span>
+                  <Check className="w-3.5 h-3.5" />
+                  <span>Kirim G-Code ke Armada 3DFlow</span>
                 </button>
-                {isPaused && (
-                  <p className="text-[11px] text-amber-400 font-mono bg-amber-500/10 p-2 rounded-lg border border-amber-500/20">
-                    ⚠ Printer dipause oleh GooOS. Suhu nozzle diturunkan ke 150°C untuk mencegah oozing.
-                  </p>
-                )}
               </div>
+
             </div>
+
           </div>
         )}
 
-        {/* TAB 3: CLOUD SLICER */}
-        {activeTab === 'slicer' && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 animate-fadeIn">
-            <div className="lg:col-span-7 p-6 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+        {/* =========================================================================
+            APP 3: GOOPRINT (Cloud CAD Studio & Parametric Prototyping)
+        ========================================================================= */}
+        {activeApp === 'gooprint' && (
+          <div className="space-y-5 animate-fadeIn">
+            
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
               <div>
-                <div className="flex items-center justify-between mb-4">
-                  <h5 className="text-xs font-mono font-bold uppercase tracking-wider text-brand-400 flex items-center gap-2">
-                    <UploadCloud className="w-4 h-4" />
-                    Mesin Slicing Cloud Instan GooOS
-                  </h5>
-                  <span className="text-[10px] font-mono text-slate-400">STL, OBJ, STEP, 3MF</span>
-                </div>
-
-                <div 
-                  onClick={handleSimulateSlicing}
-                  className="border-2 border-dashed border-slate-700 hover:border-brand-500/70 p-6 rounded-2xl text-center cursor-pointer transition bg-slate-950/40 group"
-                >
-                  <UploadCloud className="w-10 h-10 text-slate-500 group-hover:text-brand-400 mx-auto mb-2 transition" />
-                  <p className="text-xs font-bold text-white group-hover:text-brand-300">
-                    Klik untuk simulasi slicing file CAD
-                  </p>
-                  <p className="text-[11px] text-slate-400 font-mono mt-1">
-                    File saat ini: <span className="text-brand-400">{uploadedFileName}</span>
-                  </p>
-                </div>
+                <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                  <Box className="w-4 h-4 text-cyan-400" />
+                  GooPrint &bull; WebCAD Parametric Polaroid Frame Generator
+                </h4>
+                <p className="text-xs text-slate-400">
+                  Pemodelan parametrik 3D real-time langsung di browser dengan CSG boolean &amp; STL export.
+                </p>
               </div>
-
-              <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between">
-                <span className="text-xs text-slate-400 font-mono">
-                  Engine: <strong className="text-slate-200">GooSlicer Cloud v1.9</strong>
-                </span>
-                <button
-                  type="button"
-                  onClick={handleSimulateSlicing}
-                  disabled={isSlicing}
-                  className="px-4 py-2 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-mono text-xs font-bold flex items-center gap-1.5 shadow-glow-cyan transition"
-                >
-                  {isSlicing ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <Play className="w-3.5 h-3.5" />}
-                  <span>{isSlicing ? 'Memproses G-Code...' : 'Re-Slice Otomatis'}</span>
-                </button>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 p-6 rounded-2xl bg-slate-900/80 border border-slate-800 space-y-4">
-              <h5 className="text-xs font-mono font-bold uppercase tracking-wider text-brand-400">
-                Hasil Analisis Geometri &amp; Estimasi
-              </h5>
-              <div className="space-y-2.5 text-xs font-mono">
-                <div className="flex justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
-                  <span className="text-slate-400">Volume Model:</span>
-                  <span className="text-white font-bold">42.8 cm³</span>
-                </div>
-                <div className="flex justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
-                  <span className="text-slate-400">Estimasi Filament:</span>
-                  <span className="text-brand-400 font-bold">54.2 gram (18.1 meter)</span>
-                </div>
-                <div className="flex justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
-                  <span className="text-slate-400">Jumlah Lapisan:</span>
-                  <span className="text-white font-bold">640 Layers (0.16mm)</span>
-                </div>
-                <div className="flex justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
-                  <span className="text-slate-400">Total Waktu Cetak:</span>
-                  <span className="text-emerald-400 font-bold">2 Jam 18 Menit</span>
-                </div>
-                <div className="flex justify-between p-2 rounded-lg bg-slate-950 border border-slate-800">
-                  <span className="text-slate-400">Kebutuhan Support:</span>
-                  <span className="text-accent-400 font-bold">Tree Support (Auto-Optimized)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* TAB 4: TELEMETRY & CONTROLS */}
-        {activeTab === 'telemetry' && (
-          <div className="space-y-6 animate-fadeIn">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              
-              {/* Nozzle Temp */}
-              <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
-                <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-1">
-                  <span className="flex items-center gap-1.5">
-                    <Flame className="w-3.5 h-3.5 text-orange-400" />
-                    Nozzle Temp
-                  </span>
-                  <span className="text-orange-400 font-bold">Target 215°C</span>
-                </div>
-                <div className="text-2xl font-bold font-mono text-white">
-                  {nozzleTemp.toFixed(1)}°C
-                </div>
-                <div className="w-full h-1 bg-slate-800 rounded-full mt-2 overflow-hidden">
-                  <div className="h-full bg-orange-400" style={{ width: '85%' }}></div>
-                </div>
-              </div>
-
-              {/* Bed Temp */}
-              <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
-                <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-1">
-                  <span className="flex items-center gap-1.5">
-                    <Thermometer className="w-3.5 h-3.5 text-brand-400" />
-                    Heatbed Temp
-                  </span>
-                  <span className="text-brand-400 font-bold">Target 60°C</span>
-                </div>
-                <div className="text-2xl font-bold font-mono text-white">
-                  {bedTemp}°C
-                </div>
-                <div className="w-full h-1 bg-slate-800 rounded-full mt-2 overflow-hidden">
-                  <div className="h-full bg-brand-400" style={{ width: '60%' }}></div>
-                </div>
-              </div>
-
-              {/* Speed Controller */}
-              <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
-                <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-1">
-                  <span className="flex items-center gap-1.5">
-                    <Activity className="w-3.5 h-3.5 text-emerald-400" />
-                    Kecepatan Cetak
-                  </span>
-                  <span className="text-emerald-400 font-bold">{printerSpeed} mm/s</span>
-                </div>
-                <input
-                  type="range"
-                  min="100"
-                  max="500"
-                  value={printerSpeed}
-                  onChange={(e) => setPrinterSpeed(parseInt(e.target.value))}
-                  className="w-full h-1 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500 mt-3"
-                />
-                <span className="text-[10px] text-slate-400 font-mono block mt-1">
-                  Input Shaping &amp; Pressure Advance: On
-                </span>
-              </div>
-
-              {/* Filament Spool Telemetry */}
-              <div className="p-4 rounded-2xl bg-slate-900/80 border border-slate-800">
-                <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-1">
-                  <span className="flex items-center gap-1.5">
-                    <HardDrive className="w-3.5 h-3.5 text-purple-400" />
-                    Sisa Spool RFID
-                  </span>
-                  <span className="text-purple-400 font-bold">PLA+ Grey</span>
-                </div>
-                <div className="text-2xl font-bold font-mono text-white">
-                  684 g <span className="text-xs text-slate-400 font-normal">/ 1000g</span>
-                </div>
-                <div className="w-full h-1 bg-slate-800 rounded-full mt-2 overflow-hidden">
-                  <div className="h-full bg-purple-400" style={{ width: '68%' }}></div>
-                </div>
-              </div>
-
-            </div>
-
-            <div className="p-3 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center justify-between text-xs font-mono">
-              <span className="text-slate-400">Kompatibilitas Firmware: Moonraker WebSocket &bull; Klipper 0.12.0</span>
-              <span className="text-emerald-400 flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5" />
-                TLS Encrypted Connection
+              <span className="px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-mono text-xs font-semibold">
+                Three.js WebGL Engine
               </span>
             </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+              
+              {/* Interactive 3D Canvas Mockup (Col 1-7) */}
+              <div className="lg:col-span-7 bg-slate-900/90 rounded-2xl p-5 border border-slate-800 flex flex-col justify-between min-h-[340px]">
+                {/* 3D Viewport Header */}
+                <div className="flex items-center justify-between text-xs font-mono text-slate-400 pb-3 border-b border-slate-800">
+                  <span className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-cyan-400"></span>
+                    Viewport: Polaroid Frame ({frameType})
+                  </span>
+                  <span>Mesh Triangles: 2,840</span>
+                </div>
+
+                {/* Simulated Parametric Polaroid Model */}
+                <div className="relative my-4 flex items-center justify-center">
+                  <div className="w-56 h-64 rounded-2xl bg-white shadow-2xl p-4 flex flex-col justify-between border-4 border-slate-200 transform hover:rotate-1 hover:scale-105 transition-all duration-300">
+                    
+                    {/* Photo Cutout Slot */}
+                    <div className="w-full h-44 rounded-lg bg-slate-900 flex items-center justify-center relative overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-brand-600/40 to-accent-600/20"></div>
+                      <span className="relative z-10 text-[11px] font-mono text-cyan-200 font-semibold text-center px-4">
+                        Photo Cutout Slot (72 x 86mm)
+                      </span>
+                    </div>
+
+                    {/* Custom Embossed Text */}
+                    <div className="text-center font-mono font-bold text-slate-800 text-xs tracking-wider uppercase truncate">
+                      {customText || 'GOOCANAN'}
+                    </div>
+
+                  </div>
+
+                  {includeStand && (
+                    <div className="absolute -bottom-3 w-40 h-5 rounded-lg bg-slate-300 border border-slate-400 shadow-lg text-[9px] font-mono text-slate-700 flex items-center justify-center font-bold">
+                      Detachable Desk Stand Slot
+                    </div>
+                  )}
+                </div>
+
+                {/* Viewport Action Footer */}
+                <div className="pt-3 border-t border-slate-800 flex items-center justify-between">
+                  <span className="text-xs text-slate-400 font-mono">
+                    Format: <strong>STL Binary</strong> (Auto-Manifold)
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleSimulateExport}
+                    disabled={isExporting}
+                    className="px-4 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-mono text-xs font-bold flex items-center gap-2 shadow-glow-cyan transition"
+                  >
+                    {isExporting ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <Download className="w-3.5 h-3.5" />}
+                    <span>{isExporting ? 'Generating Mesh...' : 'Download STL Mesh'}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Parametric Controls Column (Col 8-12) */}
+              <div className="lg:col-span-5 p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+                <h5 className="text-xs font-mono font-bold uppercase tracking-wider text-cyan-400">
+                  Parameter Generator
+                </h5>
+
+                {/* Frame Size */}
+                <div>
+                  <label className="block text-xs font-mono text-slate-400 mb-1.5">
+                    1. Ukuran Format Frame:
+                  </label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {['Mini', 'Square', 'Wide'].map((size) => (
+                      <button
+                        key={size}
+                        type="button"
+                        onClick={() => setFrameType(size)}
+                        className={`py-1.5 text-xs font-mono font-bold rounded-xl border transition ${
+                          frameType === size
+                            ? 'bg-cyan-600 text-white border-cyan-500'
+                            : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white'
+                        }`}
+                      >
+                        {size}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Custom Text */}
+                <div>
+                  <label className="block text-xs font-mono text-slate-400 mb-1.5">
+                    2. Teks Emboss / Deboss:
+                  </label>
+                  <input
+                    type="text"
+                    value={customText}
+                    onChange={(e) => setCustomText(e.target.value)}
+                    placeholder="Contoh: HAPPY BIRTHDAY"
+                    className="w-full px-3 py-2 text-xs font-mono bg-slate-950 border border-slate-800 rounded-xl text-white focus:outline-none focus:border-cyan-500"
+                  />
+                </div>
+
+                {/* Stand Toggle */}
+                <div className="flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs font-mono">
+                  <span className="text-slate-300">Sertakan Dudukan Meja (Stand):</span>
+                  <button
+                    type="button"
+                    onClick={() => setIncludeStand(!includeStand)}
+                    className={`w-10 h-5 rounded-full transition-colors relative ${
+                      includeStand ? 'bg-cyan-600' : 'bg-slate-700'
+                    }`}
+                  >
+                    <span className={`w-4 h-4 bg-white rounded-full absolute top-0.5 transition-transform ${
+                      includeStand ? 'right-0.5' : 'left-0.5'
+                    }`} />
+                  </button>
+                </div>
+
+                <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono text-cyan-300">
+                  ⚡ <strong>G-Code Bridge:</strong> Desain ini dapat langsung dikirim ke antrean cetak 3DFlow tanpa membuka software slicer desktop.
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        )}
+
+        {/* =========================================================================
+            APP 4: GOOAI COPILOT & GOOMARKET PREVIEW
+        ========================================================================= */}
+        {activeApp === 'gooai' && (
+          <div className="space-y-5 animate-fadeIn">
+            
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+              <div>
+                <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-purple-400" />
+                  GooAI Copilot &bull; Engineering Intelligence &amp; Marketplace Sync
+                </h4>
+                <p className="text-xs text-slate-400">
+                  Analisis orientasi geometri otomatis, pencegahan cacat cetak, dan sinkronisasi pesanan Shopee/Tokopedia.
+                </p>
+              </div>
+              <span className="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/30 font-mono text-xs font-semibold">
+                AI Preview Mode
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              
+              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3">
+                <div className="flex items-center gap-2 text-xs font-mono text-purple-400 font-bold uppercase">
+                  <Sparkles className="w-4 h-4" />
+                  <span>AI Pre-Print Inspector</span>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Model AI menganalisis file STL sebelum dialokasikan ke printer:
+                </p>
+                <div className="space-y-2 text-xs font-mono">
+                  <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 flex justify-between">
+                    <span className="text-slate-400">Risiko Warping / Detach:</span>
+                    <span className="text-emerald-400 font-bold">Rendah (1.2%)</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 flex justify-between">
+                    <span className="text-slate-400">Rekomendasi Brim:</span>
+                    <span className="text-cyan-400 font-bold">Brim 5mm Disarankan</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 flex justify-between">
+                    <span className="text-slate-400">Optimasi Support Tree:</span>
+                    <span className="text-purple-400 font-bold">Hemat 38g Filamen</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-5 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-3">
+                <div className="flex items-center gap-2 text-xs font-mono text-amber-400 font-bold uppercase">
+                  <ShoppingBag className="w-4 h-4" />
+                  <span>GooMarket &bull; Multi-Channel Sync</span>
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  Integrasi reservasi stok otomatis dengan etalase e-commerce:
+                </p>
+                <div className="space-y-2 text-xs font-mono">
+                  <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 flex justify-between">
+                    <span className="text-slate-400">Shopee Official Store:</span>
+                    <span className="text-emerald-400 font-bold">Tersambung (Auto-Reserve)</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 flex justify-between">
+                    <span className="text-slate-400">Tokopedia Store:</span>
+                    <span className="text-emerald-400 font-bold">Tersambung (Auto-Reserve)</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 flex justify-between">
+                    <span className="text-slate-400">TikTok Shop:</span>
+                    <span className="text-amber-400 font-bold">Tahap Integrasi V2</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
           </div>
         )}
 

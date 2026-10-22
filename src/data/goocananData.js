@@ -1,9 +1,12 @@
+// Data terpusat GOOCANAN & GooOS Ecosystem
+// Disinkronkan dengan aplikasi /goocanan/gooos (apps.config.ts & ARCHITECTURE.md)
+
 export const COMPANY_INFO = {
   name: "GOOCANAN",
-  tagline: "Additive Manufacturing Precision & Intelligent GooOS Ecosystem",
+  tagline: "Additive Manufacturing Precision & GooOS Ecosystem",
   headline: "Wujudkan Inovasi Nyata Melalui Presisi 3D Printing & Kecerdasan GooOS",
-  subheadline: "Layanan manufaktur aditif profesional dengan akurasi hingga 0.05mm, pilihan material industri lengkap, serta dipadukan dengan ekosistem manajemen smart farm GooOS tercanggih.",
-  whatsappNumber: "6281234567890", // Ganti dengan nomor WhatsApp aktif
+  subheadline: "Layanan manufaktur aditif profesional dengan akurasi tinggi, didukung penuh oleh GooOS — ekosistem sistem operasi terpadu (3DFlow, GOO-Studio, GooPrint) untuk otomasi print farm, smart batching, dan perancangan CAD parametrik.",
+  whatsappNumber: "6281234567890",
   displayPhone: "+62 812-3456-7890",
   email: "halo@goocanan.com",
   secondaryEmail: "partnership@goocanan.com",
@@ -21,7 +24,7 @@ export const VALUE_PROPOSITIONS = [
   {
     icon: "Zap",
     title: "Pengerjaan Kilat & Same-Day Ready",
-    desc: "Didukung armada print farm multi-printer berkecepatan tinggi hingga 500mm/s dengan auto-dispatch untuk kebutuhan prototipe mendesak."
+    desc: "Didukung armada print farm Creality Hi & Bambu Lab berkecepatan tinggi, terpantau real-time melalui sistem telemetri 3DFlow."
   },
   {
     icon: "Crosshair",
@@ -31,7 +34,7 @@ export const VALUE_PROPOSITIONS = [
   {
     icon: "Layers",
     title: "15+ Material Berkualitas Tinggi",
-    desc: "Mulai dari PLA+ ramah lingkungan, PETG tahan kimia, ABS/ASA tahan panas, Resin presisi tinggi, hingga Carbon Fiber komposit."
+    desc: "Inventaris terpantau presisi: PLA+, PETG, ABS/ASA, Resin presisi tinggi, hingga Carbon Fiber (PA-CF) dengan pelacakan sisa gramasi di 3DFlow."
   },
   {
     icon: "ShieldCheck",
@@ -40,8 +43,8 @@ export const VALUE_PROPOSITIONS = [
   },
   {
     icon: "Cpu",
-    title: "Didukung Sistem Cerdas GooOS",
-    desc: "Pantau antrean, telemetri, dan progres pengerjaan cetak Anda secara transparan melalui sistem operasi internal cerdas kami."
+    title: "Didukung Ekosistem Cerdas GooOS",
+    desc: "Sistem operasi terpadu meliputi 3DFlow (Farm Ops), GOO-Studio (Smart Batching), dan GooPrint (WebCAD Studio) untuk efisiensi produksi maksimal."
   },
   {
     icon: "HelpCircle",
@@ -152,7 +155,7 @@ export const PORTFOLIO_ITEMS = [
     layerHeight: "0.12mm",
     printTime: "14 Jam",
     image: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80",
-    desc: "Struktur frame drone kustom dengan rasio kekuatan-ke-bobot tinggi, tahan getaran motor RPM tinggi dan benturan."
+    desc: "Struktur frame drone kustom dengan rasio kekuatan-ke-bobot tinggi, dioptimasi melalui Smart Batching GOO-Studio."
   },
   {
     id: 2,
@@ -162,7 +165,7 @@ export const PORTFOLIO_ITEMS = [
     layerHeight: "0.10mm",
     printTime: "28 Jam",
     image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-    desc: "Maket arsitektur presisi skala 1:100 dengan detail fasad kisi-kisi mikro dan interior transparan untuk presentasi klien pengembang."
+    desc: "Maket arsitektur presisi skala 1:100 dengan detail fasad kisi-kisi mikro dan interior transparan untuk presentasi pengembang."
   },
   {
     id: 3,
@@ -172,10 +175,20 @@ export const PORTFOLIO_ITEMS = [
     layerHeight: "0.03mm",
     printTime: "8.5 Jam",
     image: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=800&q=80",
-    desc: "Hasil cetak SLA beresolusi sangat tajam dengan tekstur kain, pori-pori mikro, dan siap menerima proses airbrush painting."
+    desc: "Hasil cetak SLA beresolusi sangat tajam dengan tekstur kain dan pori-pori mikro, siap menerima proses airbrush painting."
   },
   {
     id: 4,
+    title: "Custom Polaroid Photo Frame & Desk Stand",
+    category: "Rapid Prototyping",
+    material: "PLA+ Matte Silk White",
+    layerHeight: "0.16mm",
+    printTime: "3.5 Jam",
+    image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80",
+    desc: "Dihasilkan langsung melalui generator parametrik GooPrint WebCAD dengan kustomisasi teks timbul (emboss) dan slot foto instan."
+  },
+  {
+    id: 5,
     title: "Air Intake Adapter Mesin Balap",
     category: "Industri & Robotika",
     material: "ABS Heat-Resistant (Vapor Polished)",
@@ -183,16 +196,6 @@ export const PORTFOLIO_ITEMS = [
     printTime: "11 Jam",
     image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
     desc: "Saluran udara performa tinggi yang dihaluskan dengan uap aseton untuk aliran udara laminar bebas hambatan pada ruang mesin."
-  },
-  {
-    id: 5,
-    title: "Prototipe Ergonomic Split Keyboard Case",
-    category: "Rapid Prototyping",
-    material: "PETG Matte Black",
-    layerHeight: "0.15mm",
-    printTime: "18 Jam",
-    image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80",
-    desc: "Uji ergonomi bentuk tangan dan penempatan hotswap PCB sebelum dilakukan injeksi moulding massal."
   },
   {
     id: 6,
@@ -206,51 +209,196 @@ export const PORTFOLIO_ITEMS = [
   }
 ];
 
-export const GOOOS_FEATURES = [
+// Data Aplikasi Resmi GooOS dari gooos/apps/studio/src/config/apps.config.ts
+export const GOO_APPS = [
   {
-    icon: "Network",
-    title: "Multi-Fleet Smart Balancing",
-    tagline: "Manajemen Farm Otomatis",
-    desc: "GooOS secara otomatis mendeteksi ketersediaan nozzle, jenis material yang terpasang, dan suhu chamber untuk membagi antrean cetak secara cerdas ke printer yang paling optimal."
+    id: "3dflow",
+    name: "3DFlow",
+    tagline: "Additive Manufacturing & Farm Operations",
+    description:
+      "End-to-end telemetry sistem cetak 3D, monitoring armada printer, manajemen spul filamen & aset packaging, order tracking, katalog produk, dan buku kas transaksi.",
+    version: "v2.4 Pro",
+    status: "active",
+    category: "Manufacturing",
+    icon: "Zap",
+    color: "#f43f5e",
+    accentColor: "rose",
+    stats: [
+      { label: "Spool Filamen", value: "128 Items" },
+      { label: "Armada Printer", value: "3 Online" },
+      { label: "Transaksi Buku Kas", value: "474 Catatan" },
+      { label: "Antrean Pesanan", value: "69 Orders" }
+    ],
+    features: [
+      {
+        name: "Flow Hub Telemetri",
+        desc: "Telemetri live armada printer, metrik KPI, durasi aktif, dan status produksi cetak real-time.",
+        badge: "Live Telemetry"
+      },
+      {
+        name: "Inventaris Filamen & Aset",
+        desc: "Pelacakan 128 spul filamen dengan sisa gramasi presisi, kode HEX warna, serta 66 aset packaging & hardware.",
+        badge: "194 Total"
+      },
+      {
+        name: "Katalog Produk 3D",
+        desc: "40 item produk siap cetak dengan kalkulasi otomatis COGS, target margin laba, dan estimasi durasi print.",
+        badge: "40 Models"
+      },
+      {
+        name: "Buku Kas & Transaksi Ledger",
+        desc: "474 catatan keuangan komprehensif dari marketplace (Shopee, Tokopedia) hingga klien korporat.",
+        badge: "Ledger"
+      },
+      {
+        name: "Monitoring Armada Printer",
+        desc: "Pemantauan status Creality Hi, Bambu Lab, temperatur nozzle, bed, dan status job.",
+        badge: "Multi-Fleet"
+      },
+      {
+        name: "Pengaturan & Biaya Operasional",
+        desc: "Konfigurasi tarif listrik per kWh, wattase mesin, upah operator, harga retail per gram, dan bobot tare spul.",
+        badge: "Config Engine"
+      }
+    ]
   },
   {
-    icon: "Eye",
-    title: "AI Real-Time Vision & Spaghetti Detection",
-    tagline: "Pencegahan Kegagalan Seketika",
-    desc: "Kamera bertenaga AI GooOS memantau layer cetakan setiap detik. Jika terjadi kegagalan adhesi (spaghetti print) atau pergeseran layer, sistem otomatis mem-pause cetakan dan mengirim notifikasi darurat."
+    id: "goo-studio",
+    name: "GOO-Studio",
+    tagline: "Design Engineering & Smart Batching",
+    description:
+      "Manajemen proyek 3D, perpustakaan komponen STL part, algoritma multi-part bed plate nesting batching otomatis, dan simulasi kalkulator harga jual.",
+    version: "v3.1",
+    status: "active",
+    category: "Design & CAD",
+    icon: "Layers",
+    color: "#6366f1",
+    accentColor: "indigo",
+    stats: [
+      { label: "Proyek 3D", value: "14 Proyek" },
+      { label: "Komponen Part", value: "265 STL" },
+      { label: "Batch Plates", value: "7 Plates" }
+    ],
+    features: [
+      {
+        name: "Proyek & Komponen STL",
+        desc: "14 proyek desain aktif dengan rincian 265 file komponen STL, bobot gramasi part, dan versioning file.",
+        badge: "265 Parts"
+      },
+      {
+        name: "Smart Batching Optimizer",
+        desc: "Penyusunan multi-part nesting pada bed plate secara otomatis untuk mempercepat proses cetak massal.",
+        badge: "Plate Slicer"
+      },
+      {
+        name: "Kalkulator Biaya & Margin",
+        desc: "Simulasi akurat biaya bahan, pemakaian listrik, depresiasi alat, dan rekomendasi harga jual optimal.",
+        badge: "Simulator"
+      },
+      {
+        name: "Integrasi Kebutuhan Filamen",
+        desc: "Sinkronisasi langsung ke inventaris 3DFlow untuk memvalidasi kecukupan stok spul sebelum proses cetak.",
+        badge: "Auto Sync"
+      }
+    ]
   },
   {
-    icon: "CloudLightning",
-    title: "Instant Cloud Slicing Engine",
-    tagline: "Satu Klik dari STL ke G-Code",
-    desc: "Tidak perlu membuka software slicer berat di laptop. Cukup seret file 3D (STL, STEP, OBJ), GooOS menerapkan profil slicing terbaik Goocanan dan menghitung estimasi waktu serta filamen dalam 5 detik."
+    id: "gooprint",
+    name: "GooPrint",
+    tagline: "Cloud CAD Studio & Rapid Prototyping",
+    description:
+      "Studio CAD parametrik berbasis web untuk pembuatan model teknis 3D langsung di browser, visualisasi geometri 3D WebGL, dan integrasi slicer engine.",
+    version: "v1.2",
+    status: "active",
+    category: "Design & CAD",
+    icon: "Box",
+    color: "#06b6d4",
+    accentColor: "cyan",
+    stats: [
+      { label: "Engine", value: "Parametric 3D" },
+      { label: "Format", value: "STL / STEP / OBJ" },
+      { label: "Export", value: "Instant Mesh" }
+    ],
+    features: [
+      {
+        name: "WebCAD Studio Hub",
+        desc: "Ruang kerja pemodelan parametrik 3D real-time langsung di browser menggunakan Three.js WebGL viewport.",
+        badge: "WebCAD"
+      },
+      {
+        name: "Polaroid Frame Generator",
+        desc: "Generator bingkai foto Polaroid (Mini, Square, Wide) dengan kustomisasi teks emboss/deboss, stand, dan export STL instan.",
+        badge: "Populer"
+      },
+      {
+        name: "Parametric Part Generator",
+        desc: "Pembuatan otomatis roda gigi, dudukan sensor, dan box enclosure berdasarkan input parameter ukuran milimeter.",
+        badge: "AutoCAD"
+      },
+      {
+        name: "Slicer Bridge & Export",
+        desc: "Konektor langsung dari desain WebCAD ke antrean produksi 3DFlow tanpa perlu ekspor manual.",
+        badge: "G-Code Bridge"
+      }
+    ]
   },
   {
-    icon: "Gauge",
-    title: "Live Telemetri & Sensor Komprehensif",
-    tagline: "Kontrol Penuh 24/7",
-    desc: "Pantau grafik suhu nozzle, bed, kelembaban filamen di dry-box, voltase PSU, hingga getaran resonansi accelerometer input-shaping secara real-time dari web atau smartphone."
+    id: "goomarket",
+    name: "GooMarket",
+    tagline: "Multi-Channel Marketplace Sync",
+    description:
+      "Integrasi sinkronisasi pesanan dan stok otomatis ke Shopee, Tokopedia, dan TikTok Shop dengan auto-reserve inventory.",
+    version: "v0.9",
+    status: "coming_soon",
+    category: "E-Commerce",
+    icon: "ShoppingBag",
+    color: "#f59e0b",
+    accentColor: "amber",
+    stats: [
+      { label: "Status", value: "Tahap R&D" },
+      { label: "Kanal", value: "Shopee & Tokopedia" }
+    ],
+    features: [
+      {
+        name: "Sinkronisasi Etalase & Stok",
+        desc: "Menghubungkan penjualan di marketplace dengan ketersediaan filamen fisik di workshop.",
+        badge: "Coming Soon"
+      }
+    ]
   },
   {
-    icon: "Boxes",
-    title: "Smart Spool & Material Telemetry",
-    tagline: "Manajemen Inventaris Akurat",
-    desc: "Pelacakan RFID dan berat sisa filamen otomatis. GooOS memperingatkan jika filamen yang tersisa tidak mencukupi untuk menyelesaikan job sebelum printer mulai bekerja."
-  },
-  {
-    icon: "Smartphone",
-    title: "Client Live Stream & Tracking Portal",
-    tagline: "Transparansi Penuh untuk Klien",
-    desc: "Klien Goocanan mendapatkan tautan privat untuk melihat tayangan langsung kamera printer serta persentase kemajuan pengerjaan proyek pesanan mereka secara transparan."
+    id: "gooai",
+    name: "GooAI Copilot",
+    tagline: "Autonomous 3D Engineering Intelligence",
+    description:
+      "Asisten cerdas analisis orientasi cetak optimum, estimasi kemungkinan stringing/warping, serta auto-generate rekomendasi parameter slicer.",
+    version: "v0.5",
+    status: "coming_soon",
+    category: "Intelligence",
+    icon: "Sparkles",
+    color: "#8b5cf6",
+    accentColor: "purple",
+    stats: [
+      { label: "Model", value: "Engineering AI" },
+      { label: "Fokus", value: "Defect Prevention" }
+    ],
+    features: [
+      {
+        name: "AI Print Inspector",
+        desc: "Pendeteksian kesalahan geometri, orientasi overhang, dan rekomendasi struktur support sebelum dicetak.",
+        badge: "Preview"
+      }
+    ]
   }
 ];
 
 export const GOOOS_TECH_SPECS = [
-  { label: "Protokol Kompatibel", value: "Klipper, Moonraker, Marlin 2.0+, OctoPrint, Bambu Bus" },
-  { label: "Hardware Support", value: "Raspberry Pi 3/4/5, Orange Pi, Rockchip, x86 Server, ESP32 Hub" },
-  { label: "AI Latency", value: "< 120ms In-Chamber Vision Inference" },
-  { label: "Keamanan Data", value: "End-to-End TLS Encryption, Private On-Premise Cloud & Isolated Tenant" },
-  { label: "API & Integrasi", value: "REST API, WebSockets, Webhooks Telegram & WhatsApp Bot" }
+  { label: "Arsitektur Monorepo", value: "Turborepo + pnpm workspaces (@gooos/studio, @gooos/db, @gooos/auth, @gooos/ui)" },
+  { label: "Frontend Stack", value: "Next.js 15 App Router, TypeScript 5.9, Tailwind CSS 4, shadcn/ui" },
+  { label: "Database & ORM", value: "PostgreSQL + Drizzle ORM (18 tabel relasional komprehensif)" },
+  { label: "Autentikasi & Multi-Tenancy", value: "Better Auth dengan isolasi multi-workspace (GOOCANAN 3D, KSM, Personal)" },
+  { label: "3D Graphics Engine", value: "Three.js WebGL, three-bvh-csg (Boolean Mesh Subtraction/Addition), STLExporter" },
+  { label: "Hardware & Telemetri", value: "Creality Hi, Bambu Lab X1C/P1S, Moonraker WebSockets & REST APIs" }
 ];
 
 export const FAQS = [
@@ -260,18 +408,18 @@ export const FAQS = [
   },
   {
     q: "Berapa lama proses pengerjaan jasa 3D printing di Goocanan?",
-    a: "Untuk prototipe cepat berskala kecil hingga sedang, pesanan seringkali dapat diselesaikan dan dikirim dalam 1x24 jam (Same-Day / Next-Day). Untuk kuantitas banyak (batch production) atau SLA Resin detail tinggi, biasanya memakan waktu 2–4 hari kerja."
+    a: "Dengan manajemen otomatisasi 3DFlow dan smart batching GOO-Studio, pesanan prototipe satuan seringkali selesai dalam 1x24 jam (Same-Day / Next-Day). Untuk kuantitas banyak atau SLA Resin, rata-rata 2–4 hari kerja."
   },
   {
-    q: "Bagaimana jika saya belum punya desain file 3D, hanya punya sketsa / contoh barang?",
-    a: "Tenang, Goocanan menyediakan layanan Reverse Engineering & 3D CAD Modeling! Cukup kirimkan foto, dimensi ukuran, atau kirimkan benda fisik yang ingin diduplikasi/dimodifikasi ke workshop kami."
+    q: "Bagaimana jika saya belum punya desain file 3D, hanya punya sketsa atau barang fisik?",
+    a: "Goocanan menyediakan layanan Reverse Engineering & 3D CAD Modeling! Kami juga memiliki GooPrint WebCAD untuk pembuatan model parametrik kustom."
   },
   {
     q: "Apakah ada minimal pemesanan (Minimum Order Quantity)?",
-    a: "Tidak ada! Kami melayani mulai dari 1 buah part (prototipe satuan) hingga ratusan part untuk kebutuhan batch manufacturing skala UMKM atau industri."
+    a: "Tidak ada! Kami melayani mulai dari 1 buah part (prototipe satuan) hingga ratusan part dengan batch manufacturing hemat biaya."
   },
   {
-    q: "Apa itu GooOS dan apakah bisa digunakan di luar Goocanan?",
-    a: "GooOS awalnya merupakan sistem operasi internal yang kami kembangkan untuk mengotomasi print farm Goocanan. Saat ini kami membuka program Closed Beta & integrasi khusus bagi laboratorium kampus, maker space, dan industrial print farm yang ingin meningkatkan efisiensi armada printer mereka."
+    q: "Apa itu GooOS dan apa hubungannya dengan Goocanan?",
+    a: "GooOS adalah ekosistem sistem operasi internal buatan Goocanan yang mencakup 3DFlow (telemetri farm & spul filamen), GOO-Studio (manajemen proyek & smart batching pelat cetak), serta GooPrint (WebCAD parametrik). Seluruh pesanan klien di Goocanan diproses melalui GooOS untuk memastikan presisi, efisiensi bahan, dan transparansi."
   }
 ];

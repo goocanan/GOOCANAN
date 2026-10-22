@@ -100,7 +100,14 @@ export default function Navbar() {
                         : 'text-slate-600 hover:text-brand-600 dark:text-slate-300 dark:hover:text-brand-400 hover:bg-slate-100 dark:hover:bg-slate-800/60'
                   }`}
                 >
-                  {isGooOS && <Cpu className="w-3.5 h-3.5 text-accent-400 animate-pulse" />}
+                  {isGooOS ? (
+                    <img 
+                      src="/brand/app_icon_gradient.png" 
+                      alt="GooOS" 
+                      className="w-4 h-4 rounded object-contain shrink-0" 
+                      onError={(e) => { e.target.style.display = 'none'; }}
+                    />
+                  ) : null}
                   {link.name}
                 </Link>
               );
@@ -185,7 +192,14 @@ export default function Navbar() {
                 }`}
               >
                 <span className="flex items-center gap-2">
-                  {isGooOS && <Cpu className="w-4 h-4 text-accent-400" />}
+                  {isGooOS && (
+                    <img 
+                      src="/brand/app_icon_gradient.png" 
+                      alt="GooOS" 
+                      className="w-4 h-4 rounded object-contain shrink-0" 
+                      onError={(e) => { e.target.style.display = 'none'; }}
+                    />
+                  )}
                   {link.name}
                 </span>
                 <ChevronRight className="w-4 h-4 text-slate-400" />
