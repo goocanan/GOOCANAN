@@ -1,211 +1,224 @@
 // Data terpusat GOOCANAN & GooOS Ecosystem
-// Disinkronkan dengan aplikasi /goocanan/gooos (apps.config.ts & ARCHITECTURE.md)
+// Disesuaikan secara presisi dengan bisnis riil GOOCANAN (Armada: Creality Hi & Bambu Lab A1 Mini)
 
 export const COMPANY_INFO = {
   name: "GOOCANAN",
-  tagline: "Additive Manufacturing Precision & GooOS Ecosystem",
-  headline: "Wujudkan Inovasi Nyata Melalui Presisi 3D Printing & Kecerdasan GooOS",
-  subheadline: "Layanan manufaktur aditif profesional dengan akurasi tinggi, didukung penuh oleh GooOS — ekosistem sistem operasi terpadu (3DFlow, GOO-Studio, GooPrint) untuk otomasi print farm, smart batching, dan perancangan CAD parametrik.",
-  whatsappNumber: "6281234567890",
-  displayPhone: "+62 812-3456-7890",
-  email: "halo@goocanan.com",
-  secondaryEmail: "partnership@goocanan.com",
-  address: "Goocanan Innovation Hub & Studio, Jl. Teknologi Presisi No. 88, Kawasan Sains & Industri, Indonesia",
+  brandName: "Goocanan 3D",
+  tagline: "Precision in Every Layer • 3D Printing Service & Hardware Products",
+  headline: "Jasa 3D Printing Presisi, Produk Inovatif & Otomasi GooOS",
+  subheadline: "Layanan cetak 3D kustom (FDM), pembuatan produk jadi kreatif (seperti Mini Dispo Lens), dan produksi batch UMKM berakurasi tinggi dengan armada Creality Hi & Bambu Lab A1 Mini. Minimal order hanya Rp 25.000!",
+  whatsappNumber: "6285121266636",
+  displayPhone: "+62 851-2126-6636",
+  email: "goocanan@gmail.com",
+  address: "Jakarta Barat, DKI Jakarta, Indonesia",
   workingHours: "Senin - Sabtu: 08.00 - 21.00 WIB (Online Farm 24/7)",
+  leadTime: "2 - 3 Hari Kerja untuk Part Standar",
+  minOrder: 25000,
+  minOrderDisplay: "Rp 25.000",
+  calculatorRates: {
+    baseGramRate: 400, // Rp 400 / gram
+    hourlyMachineRate: 3000, // Rp 3.000 / jam
+    minOrderValue: 25000 // Rp 25.000 minimal
+  },
   socials: {
     instagram: "https://instagram.com/goocanan",
-    linkedin: "https://linkedin.com/company/goocanan",
-    github: "https://github.com/goocanan",
-    youtube: "https://youtube.com/@goocanan"
+    tiktok: "https://tiktok.com/@goocanan",
+    shopee: "https://id.shp.ee/pe9d6JFK",
+    tokopedia: "https://tk.tokopedia.com/ZSgfnfppD/"
   }
+};
+
+export const CORE_SERVICES = [
+  {
+    icon: "Layers",
+    title: "Jasa Cetak Kustom (Print on Demand)",
+    tag: "File STL / STEP",
+    desc: "Cetak 3D presisi tinggi dari file desain Anda sendiri untuk prototipe mekanik, tugas akhir teknik, part pengganti, atau casing custom. Didukung armada Creality Hi & Bambu Lab A1 Mini."
+  },
+  {
+    icon: "Sparkles",
+    title: "Katalog Produk Jadi Siap Pakai",
+    tag: "Langsung Order",
+    desc: "Koleksi produk kreatif inovatif buatan Goocanan: dari produk unggulan Mini Dispo Lens, Desk Organizer, Wall Arts & LED Sign, Classic Mac Watch Dock, hingga Fidget Keychain."
+  },
+  {
+    icon: "Box",
+    title: "Produksi Batch Skala UMKM / Bisnis",
+    tag: "Puluhan – Ratusan Part",
+    desc: "Layanan manufaktur batch kecil hingga menengah dengan smart batching nesting pelat cetak untuk menghemat waktu dan menekan biaya produksi secara signifikan."
+  }
+];
+
+export const FEATURED_PRODUCT = {
+  id: "mini-dispo-lens",
+  title: "Mini Dispo Lens — Lensa Kamera Retro Mirrorless",
+  tag: "Produk Unggulan Goocanan",
+  shortDesc: "Lensa kamera mirrorless inovatif berbasis bodi 3D print berpresisi tinggi dengan optik lensa kamera film disposable asli.",
+  highlight: "Menghasilkan foto bergaya retro, vintage, hangat, dan berkarakter khas film analog secara organik — tanpa perlu filter atau editing digital tambahan!",
+  mounts: ["Sony E-Mount", "Fujifilm X-Mount", "Canon EOS R / M", "Micro Four Thirds (M4/3)", "Nikon Z"],
+  specs: [
+    { label: "Bahan Bodi", value: "PLA+ Matte Premium / PETG Black" },
+    { label: "Optik", value: "Original Disposable Film Camera Lens" },
+    { label: "Focal Length", value: "Fixed Focus & Street Photography Ready" },
+    { label: "Karakter Foto", value: "Vintage, Dreamy Halation, Retro Film Vibe" }
+  ],
+  shopeeUrl: "https://id.shp.ee/pe9d6JFK",
+  tokopediaUrl: "https://tk.tokopedia.com/ZSgfnfppD/",
+  whatsappText: "Halo Goocanan, saya tertarik memesan Mini Dispo Lens untuk kamera saya."
 };
 
 export const VALUE_PROPOSITIONS = [
   {
     icon: "Zap",
-    title: "Pengerjaan Kilat & Same-Day Ready",
-    desc: "Didukung armada print farm Creality Hi & Bambu Lab berkecepatan tinggi, terpantau real-time melalui sistem telemetri 3DFlow."
+    title: "Minimal Order Hanya Rp 25.000",
+    desc: "Tidak ada syarat jumlah minimum part! Kami melayani cetak satuan mulai dari Rp 25.000 untuk membantu pelajar, maker, hingga prototipe awal UMKM."
   },
   {
     icon: "Crosshair",
-    title: "Akurasi Sub-Milimeter (0.05mm)",
-    desc: "Toleransi dimensi ketat untuk komponen mekanik, perakitan presisi (snap-fit), dan replika berdetail rumit menggunakan FDM & SLA 8K."
+    title: "Armada Cepat Creality Hi & Bambu Lab A1 Mini",
+    desc: "Kombinasi printer modern berkecepatan tinggi dengan toleransi dimensi presisi untuk hasil permukaan rapi dan snap-fit akurat."
   },
   {
     icon: "Layers",
-    title: "15+ Material Berkualitas Tinggi",
-    desc: "Inventaris terpantau presisi: PLA+, PETG, ABS/ASA, Resin presisi tinggi, hingga Carbon Fiber (PA-CF) dengan pelacakan sisa gramasi di 3DFlow."
+    title: "Bahan Material Siap Cetak (Ready Stock)",
+    desc: "Pilihan filamen teruji: PLA/PLA+ aneka warna, PETG tahan benturan & panas, hingga TPU 95A karet elastis fleksibel."
   },
   {
-    icon: "ShieldCheck",
-    title: "Jaminan Kualitas & Inspeksi QC",
-    desc: "Setiap part melalui pengecekan dimensional, deburring, dan pengujian toleransi sebelum dikirimkan ke tangan Anda."
+    icon: "Clock",
+    title: "Pengerjaan Cepat 2–3 Hari Kerja",
+    desc: "Lead time standar 2-3 hari kerja untuk part normal, serta opsi prioritas express bagi kebutuhan deadline mendesak."
   },
   {
     icon: "Cpu",
     title: "Didukung Ekosistem Cerdas GooOS",
-    desc: "Sistem operasi terpadu meliputi 3DFlow (Farm Ops), GOO-Studio (Smart Batching), dan GooPrint (WebCAD Studio) untuk efisiensi produksi maksimal."
+    desc: "Sistem operasi internal (3DFlow & GOO-Studio) memantau telemetri mesin, ketersediaan spul filamen, dan smart batching nesting."
   },
   {
-    icon: "HelpCircle",
-    title: "Konsultasi Desain & Slicing Gratis",
-    desc: "Tim engineer kami siap menganalisis orientasi cetak, ketebalan dinding, dan optimasi support agar biaya efisien tanpa mengurangi kekuatan."
+    icon: "ShoppingBag",
+    title: "Toko Resmi Shopee & Tokopedia",
+    desc: "Bebas pilih metode transaksi: direct order via WhatsApp atau lewat official store kami di Shopee & Tokopedia dengan gratis ongkir."
   }
 ];
 
 export const PRINT_MATERIALS = [
   {
     id: "pla-plus",
-    name: "PLA+ High Grade",
+    name: "PLA / PLA+ High Grade",
     type: "FDM",
-    pricePerGram: 600,
-    tags: ["Favorit", "Akurasi Bagus", "Ramah Lingkungan"],
-    features: "Permukaan rapi, dimensional presisi, mudah difinishing & dicat. Ideal untuk visual mockup & figur.",
+    pricePerGram: 400, // Rp 400 / gram real rate
+    tags: ["Paling Populer", "Akurasi Tinggi", "Aneka Warna"],
+    features: "Permukaan sangat rapi, dimensional presisi, mudah difinishing, ramah lingkungan. Sangat ideal untuk visual mockup, display, miniatur, dan casing.",
     specs: {
-      strength: "7.5/10",
+      strength: "7.8/10",
       tempResistance: "60°C",
-      finish: "Matte/Satin Halus",
-      colors: "20+ Pilihan Warna"
+      finish: "Matte / Satin Halus",
+      colors: "Hitam, Putih, Abu, Merah, Biru, Hijau, dll."
     },
-    useCases: ["Model Arsitektur", "Display & Merchandise", "Cosplay & Prop", "Prototipe Visual Awal"]
+    useCases: ["Mini Dispo Lens", "Desktop Organizer", "Display & Dekorasi", "Cosplay & Miniatur"]
   },
   {
     id: "petg",
     name: "PETG Industrial",
     type: "FDM",
-    pricePerGram: 800,
-    tags: ["Kuat", "Tahan Cuaca", "Tahan Kimia"],
-    features: "Kekuatan impak tinggi, tahan air & bahan kimia ringan, tidak getas. Cocok untuk fungsi mekanik sehari-hari.",
+    pricePerGram: 500, // Rp 500 / gram real rate
+    tags: ["Kuat", "Tahan Cuaca", "Tahan Panas 80°C"],
+    features: "Kekuatan impak tinggi, tidak mudah patah, tahan air & bahan kimia ringan. Sangat cocok untuk kebutuhan part fungsional dan mekanikal.",
     specs: {
-      strength: "8.8/10",
+      strength: "8.9/10",
       tempResistance: "80°C",
-      finish: "Glossy/Semi-Gloss",
-      colors: "Hitam, Abu, Putih, Transparan"
+      finish: "Semi-Glossy Kokoh",
+      colors: "Hitam Industri, Putih, Abu, Transparan"
     },
-    useCases: ["Bracket Elektronik", "Komponen Outdoor", "Botol / Case Custom", "Mechanical Gears"]
-  },
-  {
-    id: "abs-asa",
-    name: "ABS / ASA High-Temp",
-    type: "FDM",
-    pricePerGram: 900,
-    tags: ["Tahan Panas", "UV Resistant", "Vapor Smoothable"],
-    features: "Daya tahan suhu tinggi, dapat dihaluskan dengan uap aseton (vapor smooth) menjadi sehalus cetakan injeksi pabrik.",
-    specs: {
-      strength: "9.0/10",
-      tempResistance: "100°C+",
-      finish: "Satin / Ultra Smooth",
-      colors: "Hitam, Putih Industri, Industrial Grey"
-    },
-    useCases: ["Part Otomotif", "Enclosure Mesin", "Aplikasi Outdoor UV", "Ducting Udara Panas"]
-  },
-  {
-    id: "resin-8k",
-    name: "Standard & Tough Resin 8K",
-    type: "SLA / DLP",
-    pricePerGram: 1800,
-    tags: ["Ultra Presisi", "Micron Detail", "Bebas Garis Lapisan"],
-    features: "Resolusi mikron dengan layer height mulai 0.025mm. Tanpa terlihat layer lines, permukaan selembut produk massal.",
-    specs: {
-      strength: "8.0/10",
-      tempResistance: "75°C",
-      finish: "Ultra-High Definition",
-      colors: "Grey Master, Clear, Tough Black"
-    },
-    useCases: ["Perhiasan & Jewelry Master", "Miniatur Gaming & Figur Karakter", "Model Gigi & Medis", "Cetakan Master Mold"]
+    useCases: ["Bracket Elektronik", "Komponen Outdoor", "Holder Alat & Mesin", "Mounting Sensor"]
   },
   {
     id: "tpu-flex",
-    name: "TPU Flexible 95A / 85A",
+    name: "TPU 95A / Flexible",
     type: "FDM",
-    pricePerGram: 1200,
-    tags: ["Elastis", "Tahan Benturan", "Anti Robek"],
-    features: "Bahan karet elastis, tahan abrasi, fleksibel, meredam getaran dengan elastisitas luar biasa.",
+    pricePerGram: 700, // Rp 700 / gram real rate
+    tags: ["Karet Lentur", "Tahan Benturan", "Anti Robek"],
+    features: "Bahan karet termoplastik elastis, meredam getaran dengan baik, tahan gesekan, serta tidak getas saat terbentur.",
     specs: {
-      strength: "8.5/10 (Elastis)",
+      strength: "8.5/10 (Elastisitas)",
       tempResistance: "70°C",
       finish: "Rubberized Grip",
-      colors: "Hitam, Merah, Translucent"
+      colors: "Hitam, Merah, Semi-Translucent"
     },
-    useCases: ["Seal & Gasket Industri", "Protective Case", "Damper Drone & Gimbal", "Footing & Sol Ergonomis"]
-  },
-  {
-    id: "carbon-fiber",
-    name: "Carbon Fiber Composite (PA-CF)",
-    type: "Industrial FDM",
-    pricePerGram: 2400,
-    tags: ["Ultra Kaku", "Kekuatan Baja", "Ringan"],
-    features: "Poliamida (Nylon) diperkuat serat karbon mikro. Bobot sangat ringan namun kekuatan struktural setara logam lunak.",
-    specs: {
-      strength: "9.9/10",
-      tempResistance: "150°C",
-      finish: "Matte Dark Carbon Texture",
-      colors: "Obsidian Black"
-    },
-    useCases: ["Arm Drone Balap & UAV", "Jig & Fixture Pabrik", "Komponen Balap / Motorsport", "Robotika Kompetisi"]
+    useCases: ["Gasket & Seal", "Damper Getaran Drone", "Bumper Pelindung", "Footing Anti Slip"]
   }
 ];
 
 export const PORTFOLIO_ITEMS = [
   {
     id: 1,
-    title: "Drone Aerodynamic Chassis & Arm",
-    category: "Industri & Robotika",
-    material: "PA-CF (Carbon Fiber Reinforced)",
-    layerHeight: "0.12mm",
-    printTime: "14 Jam",
-    image: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80",
-    desc: "Struktur frame drone kustom dengan rasio kekuatan-ke-bobot tinggi, dioptimasi melalui Smart Batching GOO-Studio."
+    title: "Mini Dispo Lens — Retro Mirrorless Camera Lens",
+    category: "Produk Unggulan",
+    material: "PLA+ Matte Black & Original Disposable Optical Glass",
+    layerHeight: "0.12mm Presisi",
+    printTime: "2.5 Jam",
+    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80",
+    desc: "Produk inovasi Goocanan: Bodi lensa kamera mirrorless 3D print dengan optik kamera film disposable asli untuk hasil foto vintage analog tanpa filter digital.",
+    isHighlight: true
   },
   {
     id: 2,
-    title: "Scale Model Arsitektur Hunian Futuristik",
-    category: "Arsitektur",
-    material: "PLA+ High Grade & Clear Acrylic Hybrid",
-    layerHeight: "0.10mm",
-    printTime: "28 Jam",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-    desc: "Maket arsitektur presisi skala 1:100 dengan detail fasad kisi-kisi mikro dan interior transparan untuk presentasi pengembang."
+    title: "Apple Watch Charging Dock — Classic Mac Retro",
+    category: "Wall Arts & Dekorasi Meja",
+    material: "PLA+ Retro Beige / White",
+    layerHeight: "0.16mm",
+    printTime: "4 Jam",
+    image: "https://images.unsplash.com/photo-1508746829417-e6f548d8d6ed?auto=format&fit=crop&w=800&q=80",
+    desc: "Dudukan charger Apple Watch berbentuk komputer Mac vintage klasik, pas untuk meja kerja estetik dengan slot kabel charger rapi."
   },
   {
     id: 3,
-    title: "Karakter Figur Koleksi Detail 8K",
-    category: "Miniatur & Seni",
-    material: "SLA Tough Resin 8K",
-    layerHeight: "0.03mm",
-    printTime: "8.5 Jam",
-    image: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=800&q=80",
-    desc: "Hasil cetak SLA beresolusi sangat tajam dengan tekstur kain dan pori-pori mikro, siap menerima proses airbrush painting."
+    title: "The Poly Wallet — Slim Pop-Up Cascade Cardholder",
+    category: "Tools & Organizer",
+    material: "PETG High Strength Matte",
+    layerHeight: "0.16mm",
+    printTime: "3 Jam",
+    image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80",
+    desc: "Dompet kartu mekanik ramping dengan tuas pop-up otomatis, kuat dan tahan tekukan saku harian."
   },
   {
     id: 4,
-    title: "Custom Polaroid Photo Frame & Desk Stand",
-    category: "Rapid Prototyping",
-    material: "PLA+ Matte Silk White",
-    layerHeight: "0.16mm",
-    printTime: "3.5 Jam",
-    image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80",
-    desc: "Dihasilkan langsung melalui generator parametrik GooPrint WebCAD dengan kustomisasi teks timbul (emboss) dan slot foto instan."
+    title: "Desktop LED Neon Sign & Ambient Lamp",
+    category: "Wall Arts & Dekorasi Meja",
+    material: "PLA+ Dual Tone (Black Base & Translucent White)",
+    layerHeight: "0.20mm",
+    printTime: "5 Jam",
+    image: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80",
+    desc: "Lampu meja estetik dengan diffuser cetak 3D untuk penyebaran cahaya LED merata, ideal untuk setup gaming atau kamar."
   },
   {
     id: 5,
-    title: "Air Intake Adapter Mesin Balap",
-    category: "Industri & Robotika",
-    material: "ABS Heat-Resistant (Vapor Polished)",
-    layerHeight: "0.16mm",
-    printTime: "11 Jam",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
-    desc: "Saluran udara performa tinggi yang dihaluskan dengan uap aseton untuk aliran udara laminar bebas hambatan pada ruang mesin."
+    title: "Under-Desk Slide Drawer Organizer",
+    category: "Tools & Organizer",
+    material: "PLA+ / PETG Kokoh",
+    layerHeight: "0.20mm",
+    printTime: "6 Jam",
+    image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80",
+    desc: "Laci tempel bawah meja praktis untuk menyimpan alat tulis, flashdisk, dan kabel tanpa memakan ruang atas meja."
   },
   {
     id: 6,
-    title: "Gasket Silikon & Damper Getaran Mesin",
-    category: "Industri & Robotika",
-    material: "TPU Flexible 95A",
-    layerHeight: "0.20mm",
-    printTime: "6 Jam",
-    image: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80",
-    desc: "Part elastis peredam vibrasi motor listrik dengan sealing kedap debu dan ketahanan abrasi maksimal."
+    title: "Functional Drone Arm & Electronics Enclosure",
+    category: "Part Kustom Industri",
+    material: "PETG / TPU 95A Flexible",
+    layerHeight: "0.16mm",
+    printTime: "4.5 Jam",
+    image: "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80",
+    desc: "Komponen mekanikal custom tahan getaran dan benturan untuk proyek robotika dan aerodinamika."
+  },
+  {
+    id: 7,
+    title: "Kawaii Skeleton Bear & Tiny Axolotl Articulated",
+    category: "Keychain & Fidget",
+    material: "PLA+ Silk Pastel",
+    layerHeight: "0.12mm",
+    printTime: "1.5 Jam",
+    image: "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=800&q=80",
+    desc: "Gantungan kunci dan mainan fidget dengan sambungan fleksibel artikulasi langsung tercetak tanpa perlu perakitan manual."
   }
 ];
 
@@ -216,7 +229,7 @@ export const GOO_APPS = [
     name: "3DFlow",
     tagline: "Additive Manufacturing & Farm Operations",
     description:
-      "End-to-end telemetry sistem cetak 3D, monitoring armada printer, manajemen spul filamen & aset packaging, order tracking, katalog produk, dan buku kas transaksi.",
+      "End-to-end telemetry sistem cetak 3D armada Creality Hi & Bambu Lab A1 Mini, monitoring spul filamen real-time, order tracking pesanan cetak, katalog produk, dan buku kas transaksi.",
     version: "v2.4 Pro",
     status: "active",
     category: "Manufacturing",
@@ -225,7 +238,7 @@ export const GOO_APPS = [
     accentColor: "rose",
     stats: [
       { label: "Spool Filamen", value: "128 Items" },
-      { label: "Armada Printer", value: "3 Online" },
+      { label: "Armada Printer", value: "Creality & Bambu" },
       { label: "Transaksi Buku Kas", value: "474 Catatan" },
       { label: "Antrean Pesanan", value: "69 Orders" }
     ],
@@ -247,17 +260,17 @@ export const GOO_APPS = [
       },
       {
         name: "Buku Kas & Transaksi Ledger",
-        desc: "474 catatan keuangan komprehensif dari marketplace (Shopee, Tokopedia) hingga klien korporat.",
+        desc: "474 catatan keuangan komprehensif dari marketplace (Shopee, Tokopedia) hingga pesanan langsung WhatsApp.",
         badge: "Ledger"
       },
       {
         name: "Monitoring Armada Printer",
-        desc: "Pemantauan status Creality Hi, Bambu Lab, temperatur nozzle, bed, dan status job.",
+        desc: "Pemantauan status Creality Hi & Bambu Lab A1 Mini, temperatur nozzle, bed, dan progres job.",
         badge: "Multi-Fleet"
       },
       {
         name: "Pengaturan & Biaya Operasional",
-        desc: "Konfigurasi tarif listrik per kWh, wattase mesin, upah operator, harga retail per gram, dan bobot tare spul.",
+        desc: "Konfigurasi tarif listrik per kWh, wattase mesin, upah operator, dan bobot tare spul.",
         badge: "Config Engine"
       }
     ]
@@ -292,7 +305,7 @@ export const GOO_APPS = [
       },
       {
         name: "Kalkulator Biaya & Margin",
-        desc: "Simulasi akurat biaya bahan, pemakaian listrik, depresiasi alat, dan rekomendasi harga jual optimal.",
+        desc: "Simulasi akurat biaya bahan (Rp 400/g), listrik & mesin (Rp 3.000/j), serta rekomendasi harga jual optimal.",
         badge: "Simulator"
       },
       {
@@ -347,7 +360,7 @@ export const GOO_APPS = [
     name: "GooMarket",
     tagline: "Multi-Channel Marketplace Sync",
     description:
-      "Integrasi sinkronisasi pesanan dan stok otomatis ke Shopee, Tokopedia, dan TikTok Shop dengan auto-reserve inventory.",
+      "Integrasi sinkronisasi pesanan dan stok otomatis ke Shopee dan Tokopedia resmi Goocanan dengan auto-reserve inventory.",
     version: "v0.9",
     status: "coming_soon",
     category: "E-Commerce",
@@ -355,14 +368,14 @@ export const GOO_APPS = [
     color: "#f59e0b",
     accentColor: "amber",
     stats: [
-      { label: "Status", value: "Tahap R&D" },
-      { label: "Kanal", value: "Shopee & Tokopedia" }
+      { label: "Kanal", value: "Shopee & Tokopedia" },
+      { label: "Status", value: "Live Store" }
     ],
     features: [
       {
         name: "Sinkronisasi Etalase & Stok",
-        desc: "Menghubungkan penjualan di marketplace dengan ketersediaan filamen fisik di workshop.",
-        badge: "Coming Soon"
+        desc: "Menghubungkan penjualan di marketplace Shopee & Tokopedia dengan ketersediaan fisik filamen di workshop.",
+        badge: "Integrated"
       }
     ]
   },
@@ -398,28 +411,36 @@ export const GOOOS_TECH_SPECS = [
   { label: "Database & ORM", value: "PostgreSQL + Drizzle ORM (18 tabel relasional komprehensif)" },
   { label: "Autentikasi & Multi-Tenancy", value: "Better Auth dengan isolasi multi-workspace (GOOCANAN 3D, KSM, Personal)" },
   { label: "3D Graphics Engine", value: "Three.js WebGL, three-bvh-csg (Boolean Mesh Subtraction/Addition), STLExporter" },
-  { label: "Hardware & Telemetri", value: "Creality Hi, Bambu Lab X1C/P1S, Moonraker WebSockets & REST APIs" }
+  { label: "Hardware & Telemetri", value: "Creality Hi, Bambu Lab A1 Mini, Moonraker WebSockets & REST APIs" }
 ];
 
 export const FAQS = [
   {
-    q: "Format file 3D apa saja yang didukung untuk pencetakan?",
-    a: "Kami menerima format standar industri seperti STL, STEP/STP, OBJ, 3MF, dan IGES. Format STEP sangat disarankan untuk part fungsional karena menjaga integritas geometri kurva."
+    q: "Berapa minimal order (MOQ) untuk jasa cetak di Goocanan?",
+    a: "Minimal pemesanan sangat terjangkau, yaitu hanya Rp 25.000! Tidak ada batasan minimal jumlah part — Anda bebas memesan 1 pcs prototipe satuan atau ratusan part batch."
   },
   {
-    q: "Berapa lama proses pengerjaan jasa 3D printing di Goocanan?",
-    a: "Dengan manajemen otomatisasi 3DFlow dan smart batching GOO-Studio, pesanan prototipe satuan seringkali selesai dalam 1x24 jam (Same-Day / Next-Day). Untuk kuantitas banyak atau SLA Resin, rata-rata 2–4 hari kerja."
+    q: "Berapa lama estimasi waktu pengerjaan (lead time)?",
+    a: "Untuk part standar normal, estimasi pengerjaan adalah 2 hingga 3 hari kerja. Tersedia juga opsi layanan express bagi kebutuhan proyek yang mendesak."
   },
   {
-    q: "Bagaimana jika saya belum punya desain file 3D, hanya punya sketsa atau barang fisik?",
-    a: "Goocanan menyediakan layanan Reverse Engineering & 3D CAD Modeling! Kami juga memiliki GooPrint WebCAD untuk pembuatan model parametrik kustom."
+    q: "Bagaimana cara memesan atau berkonsultasi?",
+    a: "Sangat mudah! Anda bisa mengirimkan file 3D (STL/STEP) langsung via WhatsApp ke +62 851-2126-6636 untuk mendapatkan estimasi instan, atau memesan produk jadi kami melalui Shopee dan Tokopedia."
   },
   {
-    q: "Apakah ada minimal pemesanan (Minimum Order Quantity)?",
-    a: "Tidak ada! Kami melayani mulai dari 1 buah part (prototipe satuan) hingga ratusan part dengan batch manufacturing hemat biaya."
+    q: "Format file 3D apa saja yang didukung?",
+    a: "Kami menerima format standar industri seperti STL, STEP/STP, OBJ, dan 3MF. Format STEP sangat disarankan untuk komponen mekanikal presisi."
   },
   {
-    q: "Apa itu GooOS dan apa hubungannya dengan Goocanan?",
-    a: "GooOS adalah ekosistem sistem operasi internal buatan Goocanan yang mencakup 3DFlow (telemetri farm & spul filamen), GOO-Studio (manajemen proyek & smart batching pelat cetak), serta GooPrint (WebCAD parametrik). Seluruh pesanan klien di Goocanan diproses melalui GooOS untuk memastikan presisi, efisiensi bahan, dan transparansi."
+    q: "Bahan filamen apa saja yang ready stock di Goocanan?",
+    a: "Kami menyediakan PLA/PLA+ (aneka warna untuk display & mockup rapi), PETG (tahan panas 80°C & benturan mekanikal), serta TPU 95A (karet elastis untuk casing & damper peredam)."
+  },
+  {
+    q: "Apa itu produk Mini Dispo Lens yang diproduksi Goocanan?",
+    a: "Mini Dispo Lens adalah produk lensa kamera mirrorless inovatif buatan Goocanan dengan bodi cetak 3D presisi tinggi yang menggabungkan optik lensa kamera film disposable asli. Lensa ini menghasilkan karakter foto retro/vintage film analog secara alami tanpa perlu filter digital tambahan."
+  },
+  {
+    q: "Apa itu GooOS dan apa perannya bagi klien Goocanan?",
+    a: "GooOS adalah ekosistem sistem operasi internal buatan Goocanan (3DFlow & GOO-Studio) yang mengotomasi armada printer kami di Jakarta Barat. Melalui GooOS, setiap pesanan dijamin kepastian stok filamennya, tertata efisien dalam pelat cetak (batching), dan diawasi telemetri live untuk hasil cetak yang konsisten dan akurat."
   }
 ];

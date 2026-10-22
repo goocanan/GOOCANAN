@@ -36,12 +36,13 @@ export default function Navbar() {
   }, [location.pathname]);
 
   const navLinks = [
-    { name: 'Beranda (3D Printing)', path: '/' },
+    { name: 'Beranda', path: '/' },
+    { name: 'Produk Unggulan', path: '/#featured' },
     { name: 'Bahan Material', path: '/#materials' },
     { name: 'Portofolio', path: '/#portfolio' },
     { name: 'Kalkulator Biaya', path: '/#estimator' },
     { name: 'GooOS Platform', path: '/gooos', highlight: true },
-    { name: 'Kontak & Lokasi', path: '/kontak' },
+    { name: 'Kontak', path: '/kontak' },
   ];
 
   return (

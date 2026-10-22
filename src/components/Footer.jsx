@@ -9,9 +9,10 @@ import {
   Clock, 
   ShieldCheck,
   CheckCircle2,
-  ArrowUpRight
+  ArrowUpRight,
+  ShoppingBag
 } from 'lucide-react';
-import { InstagramIcon, LinkedinIcon, GithubIcon, YoutubeIcon } from './SocialIcons';
+import { InstagramIcon, TikTokIcon, ShopeeIcon, TokopediaIcon } from './SocialIcons';
 import { COMPANY_INFO } from '../data/goocananData';
 
 export default function Footer() {
@@ -40,7 +41,7 @@ export default function Footer() {
             </Link>
             
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              Solusi manufaktur aditif (3D printing) terintegrasi untuk prototipe cepat, komponen fungsional industri, dan seni presisi tinggi. Didukung penuh oleh ekosistem sistem operasi pintar <strong>GooOS</strong>.
+              Jasa 3D Printing presisi tinggi, inovasi produk kreatif (seperti <em>Mini Dispo Lens</em>), dan produksi batch UMKM berbasis di <strong>Jakarta Barat</strong>. Didukung ekosistem cerdas <strong>GooOS</strong> (3DFlow &amp; GOO-Studio).
             </p>
 
             {/* Farm Status Live Pill */}
@@ -49,46 +50,50 @@ export default function Footer() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span>GooOS 3DFlow: 3 Armada Online &bull; 128 Spul Terdata</span>
+              <span>Armada Aktif: Creality Hi &amp; Bambu Lab A1 Mini</span>
             </div>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-3 pt-2">
+            {/* Social & Marketplace Channels */}
+            <div className="flex items-center gap-2.5 pt-2">
               <a
                 href={COMPANY_INFO.socials.instagram}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 hover:scale-110 transition"
-                aria-label="Instagram"
+                className="w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-brand-500 hover:scale-110 transition"
+                aria-label="Instagram @goocanan"
+                title="Instagram @goocanan"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
               <a
-                href={COMPANY_INFO.socials.linkedin}
+                href={COMPANY_INFO.socials.tiktok}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 hover:scale-110 transition"
-                aria-label="LinkedIn"
+                className="w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-brand-500 hover:scale-110 transition"
+                aria-label="TikTok @goocanan"
+                title="TikTok @goocanan"
               >
-                <LinkedinIcon className="w-4 h-4" />
+                <TikTokIcon className="w-4 h-4" />
               </a>
               <a
-                href={COMPANY_INFO.socials.github}
+                href={COMPANY_INFO.socials.shopee}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 hover:scale-110 transition"
-                aria-label="GitHub"
+                className="w-9 h-9 rounded-lg bg-orange-500/10 border border-orange-500/20 text-orange-600 dark:text-orange-400 hover:bg-orange-500 hover:text-white hover:scale-110 transition"
+                aria-label="Shopee Goocanan"
+                title="Official Shopee Store"
               >
-                <GithubIcon className="w-4 h-4" />
+                <ShopeeIcon className="w-4 h-4" />
               </a>
               <a
-                href={COMPANY_INFO.socials.youtube}
+                href={COMPANY_INFO.socials.tokopedia}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-400 hover:scale-110 transition"
-                aria-label="YouTube"
+                className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-500 hover:text-white hover:scale-110 transition"
+                aria-label="Tokopedia Goocanan"
+                title="Official Tokopedia Store"
               >
-                <YoutubeIcon className="w-4 h-4" />
+                <TokopediaIcon className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -96,38 +101,38 @@ export default function Footer() {
           {/* Quick Navigation (Col 5-7) */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-              Navigasi Halaman
+              Navigasi Layanan
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link to="/" className="text-slate-600 dark:text-slate-400 hover:text-brand-500 dark:hover:text-brand-400 transition flex items-center gap-1.5">
-                  Layanan 3D Printing
+                  Layanan 3D Printing &amp; Produk
                 </Link>
               </li>
               <li>
+                <a href="/#featured" className="text-brand-600 dark:text-brand-400 font-semibold hover:underline flex items-center gap-1">
+                  ★ Produk Unggulan: Mini Dispo Lens
+                </a>
+              </li>
+              <li>
                 <a href="/#materials" className="text-slate-600 dark:text-slate-400 hover:text-brand-500 dark:hover:text-brand-400 transition">
-                  Material &amp; Spesifikasi Teknis
+                  Pilihan Bahan (PLA+, PETG, TPU)
                 </a>
               </li>
               <li>
                 <a href="/#portfolio" className="text-slate-600 dark:text-slate-400 hover:text-brand-500 dark:hover:text-brand-400 transition">
-                  Galeri Portofolio Proyek
+                  Galeri Produk &amp; Portofolio
                 </a>
               </li>
               <li>
                 <a href="/#estimator" className="text-slate-600 dark:text-slate-400 hover:text-brand-500 dark:hover:text-brand-400 transition">
-                  Kalkulator Estimasi Biaya
+                  Kalkulator Biaya (Min. Rp 25rb)
                 </a>
               </li>
               <li>
                 <Link to="/gooos" className="text-accent-600 dark:text-accent-400 font-semibold hover:underline flex items-center gap-1">
                   <Cpu className="w-3.5 h-3.5" />
-                  GooOS Platform &amp; Sistem
-                </Link>
-              </li>
-              <li>
-                <Link to="/kontak" className="text-slate-600 dark:text-slate-400 hover:text-brand-500 dark:hover:text-brand-400 transition">
-                  Kontak &amp; Lokasi Workshop
+                  GooOS Platform &amp; Telemetri
                 </Link>
               </li>
             </ul>
@@ -136,32 +141,32 @@ export default function Footer() {
           {/* Materials & Tech (Col 8-9) */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-              Kemampuan Teknis
+              Spesifikasi Workshop
             </h4>
-            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-              <li>• FDM &amp; SLA 8K High Res</li>
-              <li>• PLA+ &amp; Tough PLA</li>
-              <li>• PETG Tahan Kimia</li>
-              <li>• ABS/ASA Vapor Smooth</li>
-              <li>• TPU Elastis 95A/85A</li>
-              <li>• Carbon Fiber (PA-CF)</li>
-              <li>• Toleransi hingga 0.05mm</li>
+            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400 font-mono text-xs">
+              <li>&bull; Creality Hi 0.4</li>
+              <li>&bull; Bambu Lab A1 Mini</li>
+              <li>&bull; PLA / PLA+ High Grade</li>
+              <li>&bull; PETG Tahan Panas 80°C</li>
+              <li>&bull; TPU 95A Karet Lentur</li>
+              <li>&bull; Min. Order: Rp 25.000</li>
+              <li>&bull; Lead Time: 2-3 Hari</li>
             </ul>
           </div>
 
           {/* Contact Direct (Col 10-12) */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-              Hubungi Goocanan
+              Kontak &amp; Workshop
             </h4>
             <div className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
               <a 
-                href={`https://wa.me/${COMPANY_INFO.whatsappNumber}`}
+                href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent('Halo Goocanan, saya ingin konsultasi 3D printing.')}`}
                 target="_blank" 
                 rel="noreferrer"
                 className="flex items-start gap-2.5 hover:text-brand-500 dark:hover:text-brand-400 transition group"
               >
-                <Phone className="w-4 h-4 text-brand-500 mt-0.5 shrink-0" />
+                <Phone className="w-4 h-4 text-emerald-500 mt-0.5 shrink-0" />
                 <span>WhatsApp: {COMPANY_INFO.displayPhone}</span>
               </a>
 
@@ -189,14 +194,14 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-500">
-          <p>© {currentYear} GOOCANAN &amp; GooOS Ecosystem. Seluruh Hak Cipta Dilindungi.</p>
+          <p>© {currentYear} GOOCANAN (Goocanan 3D) &bull; Precision in Every Layer. Seluruh Hak Cipta Dilindungi.</p>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-accent-500" />
-              Siap Deploy di Render Cloud
+              Minimal Order Rp 25.000 &bull; Pengerjaan 2-3 Hari
             </span>
-            <span>•</span>
-            <Link to="/kontak" className="hover:underline">Bantuan &amp; Konsultasi</Link>
+            <span>&bull;</span>
+            <Link to="/kontak" className="hover:underline">Kontak &amp; Pemesanan</Link>
           </div>
         </div>
       </div>
