@@ -38,8 +38,8 @@ export default function GooOSPage() {
       {/* =========================================================================
           HERO SECTION
       ========================================================================= */}
-      <section className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-6 pb-12">
-        <div className="text-center max-w-4xl mx-auto space-y-6">
+      <section className="px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto pt-6 pb-12">
+        <div className="text-center max-w-5xl mx-auto space-y-6">
           
           {/* Official GooOS Brand Logo & Badge */}
           <div className="flex flex-col items-center justify-center gap-3">
@@ -67,7 +67,7 @@ export default function GooOSPage() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
             Platform komputasi terdistribusi yang menyatukan seluruh siklus manufaktur aditif Goocanan: dari <strong>3DFlow</strong> (telemetri armada &amp; inventaris spul), <strong>GOO-Studio</strong> (smart batching nesting &amp; kalkulator margin), hingga <strong>GooPrint</strong> (WebCAD parametrik 3D).
           </p>
 
@@ -96,7 +96,7 @@ export default function GooOSPage() {
       {/* =========================================================================
           INTERACTIVE GOOOS DASHBOARD MOCKUP
       ========================================================================= */}
-      <section id="mockup" className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto py-8">
+      <section id="mockup" className="px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto py-8">
         <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span className="text-xs font-mono font-bold uppercase tracking-wider text-rose-500 dark:text-rose-400">
@@ -117,8 +117,8 @@ export default function GooOSPage() {
       {/* =========================================================================
           DAFTAR APLIKASI UTAMA (3DFLOW, GOO-STUDIO, GOOPRINT, GOOMARKET, GOOAI)
       ========================================================================= */}
-      <section id="apps" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-14">
+      <section id="apps" className="py-16 px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto">
+        <div className="text-center max-w-4xl mx-auto mb-14">
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
             Arsitektur Aplikasi Modular
           </span>
@@ -131,7 +131,7 @@ export default function GooOSPage() {
         </div>
 
         {/* 5 Apps Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           {GOO_APPS.map((app) => (
             <div
               key={app.id}
@@ -231,8 +231,8 @@ export default function GooOSPage() {
       {/* =========================================================================
           TECHNICAL STACK & MONOREPO ARCHITECTURE (Based on ARCHITECTURE.md)
       ========================================================================= */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="rounded-3xl bg-slate-900 border border-slate-800 p-8 sm:p-12 text-white overflow-hidden relative shadow-2xl">
+      <section className="py-16 px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto">
+        <div className="rounded-3xl bg-slate-900 border border-slate-800 p-8 sm:p-14 text-white overflow-hidden relative shadow-2xl">
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-5 space-y-4">
@@ -240,7 +240,7 @@ export default function GooOSPage() {
                 <Database className="w-3.5 h-3.5" />
                 <span>Arsitektur Monorepo Turborepo</span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold leading-tight">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight">
                 Dibangun di Atas Fondasi Teknologi Mutakhir
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
@@ -282,8 +282,8 @@ export default function GooOSPage() {
       {/* =========================================================================
           MANFAAT PENGGUNAAN (BENEFITS)
       ========================================================================= */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-12">
+      <section className="py-16 px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto">
+        <div className="text-center max-w-4xl mx-auto mb-12">
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
             Dampak &amp; Nilai Tambah
           </span>
@@ -292,40 +292,40 @@ export default function GooOSPage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8">
           
-          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 shadow-md">
+          <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 shadow-md">
             <div className="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold">
               01
             </div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
               Bagi Klien Goocanan
             </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               Kalkulasi harga transparan berbasis gramasi &amp; waktu cetak riil tanpa markup tersembunyi, pengerjaan lebih cepat berkat smart batching, serta jaminan ketersediaan filamen sesuai antrean.
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 shadow-md">
+          <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 shadow-md">
             <div className="w-10 h-10 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center font-bold">
               02
             </div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
               Bagi Operator Print Farm
             </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               Tidak ada lagi spul filamen habis di tengah jalan tanpa peringatan. 3DFlow memantau gramasi sisa, mencatat pengeluaran listrik dan depresiasi alat, serta membukukan arus kas transaksi secara otomatis.
             </p>
           </div>
 
-          <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 shadow-md">
+          <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 shadow-md">
             <div className="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center font-bold">
               03
             </div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white">
               Bagi Desainer &amp; Prototyper
             </h3>
-            <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               Membuat model 3D parametrik seperti Polaroid Frame langsung di browser melalui GooPrint WebCAD, dan meneruskannya ke antrean pelat cetak GOO-Studio dalam satu klik.
             </p>
           </div>
@@ -336,7 +336,7 @@ export default function GooOSPage() {
       {/* =========================================================================
           CALL TO ACTION
       ========================================================================= */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-12 px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto">
         <div className="rounded-3xl bg-gradient-to-r from-slate-900 via-slate-950 to-brand-950 border border-brand-500/40 p-8 sm:p-12 text-center text-white space-y-6 shadow-glow-combo">
           <h3 className="text-2xl sm:text-4xl font-extrabold tracking-tight">
             Ingin Berkolaborasi atau Menggunakan Ekosistem GooOS?

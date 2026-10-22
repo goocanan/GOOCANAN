@@ -65,10 +65,10 @@ export default function ContactPage() {
       {/* Glow effect */}
       <div className="absolute top-24 left-1/3 w-[600px] h-[350px] bg-brand-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         
         {/* Header Section */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
+        <div className="text-center max-w-4xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 border border-brand-500/20 text-xs font-mono font-semibold mb-3">
             <MessageCircle className="w-3.5 h-3.5" />
             <span>Respon Cepat &bull; Tim Engineer Siap Membantu</span>

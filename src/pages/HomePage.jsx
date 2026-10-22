@@ -45,12 +45,12 @@ export default function HomePage() {
       {/* =========================================================================
           HERO SECTION
       ========================================================================= */}
-      <section className="relative px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto pt-8 pb-16 lg:pt-16 lg:pb-24">
+      <section className="relative px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto pt-8 pb-16 lg:pt-16 lg:pb-24">
         {/* Glow Effects */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-brand-500/15 dark:bg-brand-500/20 blur-[130px] rounded-full pointer-events-none -z-10" />
-        <div className="absolute top-1/3 right-10 w-[350px] h-[250px] bg-accent-500/10 blur-[100px] rounded-full pointer-events-none -z-10" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-brand-500/15 dark:bg-brand-500/20 blur-[150px] rounded-full pointer-events-none -z-10" />
+        <div className="absolute top-1/3 right-10 w-[500px] h-[350px] bg-accent-500/10 blur-[120px] rounded-full pointer-events-none -z-10" />
 
-        <div className="text-center max-w-4xl mx-auto space-y-6">
+        <div className="text-center max-w-5xl mx-auto space-y-6">
           
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-xs font-mono font-medium text-slate-800 dark:text-slate-300 shadow-sm animate-fadeIn">
@@ -70,7 +70,7 @@ export default function HomePage() {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
             {COMPANY_INFO.subheadline}
           </p>
 
@@ -105,7 +105,7 @@ export default function HomePage() {
           </div>
 
           {/* Key Stats Counter Grid */}
-          <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+          <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
             <div className="p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 backdrop-blur-sm">
               <span className="block text-2xl sm:text-3xl font-extrabold font-mono text-brand-600 dark:text-brand-400">
                 500+
@@ -149,8 +149,8 @@ export default function HomePage() {
       {/* =========================================================================
           VALUE PROPOSITIONS / KEUNGGULAN UTAMA
       ========================================================================= */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-12">
+      <section className="py-16 px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto">
+        <div className="text-center max-w-4xl mx-auto mb-12">
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
             Mengapa Memilih Goocanan?
           </span>
@@ -162,7 +162,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           {VALUE_PROPOSITIONS.map((prop, idx) => (
             <div
               key={idx}
@@ -190,7 +190,7 @@ export default function HomePage() {
       {/* =========================================================================
           LAYANAN & BAHAN MATERIAL SECTION
       ========================================================================= */}
-      <section id="materials" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section id="materials" className="py-16 px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <div>
             <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
@@ -199,7 +199,7 @@ export default function HomePage() {
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-1">
               Material Berkualitas Untuk Setiap Kebutuhan
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2 max-w-2xl">
+            <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2 max-w-3xl">
               Dari prototipe visual berbiaya hemat hingga suku cadang fungsional yang tahan suhu tinggi dan benturan keras.
             </p>
           </div>
@@ -216,7 +216,7 @@ export default function HomePage() {
         </div>
 
         {/* Materials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           {PRINT_MATERIALS.map((material) => (
             <div
               key={material.id}
@@ -291,15 +291,15 @@ export default function HomePage() {
       {/* =========================================================================
           INTERACTIVE COST ESTIMATOR WIDGET
       ========================================================================= */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-16 px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto">
         <CostEstimator />
       </section>
 
       {/* =========================================================================
           GALERI PORTOFOLIO SECTION
       ========================================================================= */}
-      <section id="portfolio" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-10">
+      <section id="portfolio" className="py-16 px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto">
+        <div className="text-center max-w-4xl mx-auto mb-10">
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
             Galeri Portofolio
           </span>
@@ -330,7 +330,7 @@ export default function HomePage() {
         </div>
 
         {/* Portfolio Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           {filteredPortfolio.map((item) => (
             <div
               key={item.id}
@@ -386,8 +386,8 @@ export default function HomePage() {
       {/* =========================================================================
           GOOOS TEASER BANNER
       ========================================================================= */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-brand-950 p-8 sm:p-12 border border-brand-500/40 text-white overflow-hidden shadow-glow-combo">
+      <section className="py-16 px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto">
+        <div className="relative rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-brand-950 p-8 sm:p-14 border border-brand-500/40 text-white overflow-hidden shadow-glow-combo">
           
           {/* Subtle Grid Pattern */}
           <div className="absolute inset-0 tech-grid-pattern opacity-30 pointer-events-none" />
@@ -405,11 +405,11 @@ export default function HomePage() {
                 <span>Ekosistem Operasi Internal: GooOS Suite</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
                 Bagaimana Goocanan Menjamin Efisiensi &amp; Presisi Cetak?
               </h2>
 
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+              <p className="text-slate-300 text-sm sm:text-base leading-relaxed max-w-3xl">
                 Setiap proses di workshop kami didukung oleh <strong>GooOS</strong> — sistem operasi terpadu meliputi <strong>3DFlow</strong> (telemetri armada printer &amp; 128 spul filamen), <strong>GOO-Studio</strong> (smart batching plate nesting &amp; simulasi margin), serta <strong>GooPrint</strong> (WebCAD parametrik 3D).
               </p>
 
@@ -454,7 +454,7 @@ export default function HomePage() {
       {/* =========================================================================
           FAQ ACCORDION SECTION
       ========================================================================= */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+      <section className="py-16 px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-5xl mx-auto">
         <div className="text-center mb-10">
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400">
             Pertanyaan Umum (FAQ)
@@ -494,7 +494,7 @@ export default function HomePage() {
       {/* =========================================================================
           FINAL BOTTOM CTA
       ========================================================================= */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-12 px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto">
         <div className="rounded-3xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 p-8 sm:p-12 text-center space-y-6">
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
             Siap Merealisasikan Ide Desain Anda Menjadi Produk Nyata?

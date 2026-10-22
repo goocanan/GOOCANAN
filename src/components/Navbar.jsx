@@ -50,7 +50,7 @@ export default function Navbar() {
         ? 'bg-white/85 dark:bg-dark-bg/85 backdrop-blur-md shadow-md border-b border-slate-200/80 dark:border-slate-800/80 py-3' 
         : 'bg-transparent py-4'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         <div className="flex items-center justify-between">
           
           {/* Logo */}
