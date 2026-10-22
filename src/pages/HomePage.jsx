@@ -16,7 +16,11 @@ import {
   PhoneCall, 
   HelpCircle,
   ExternalLink,
-  ChevronDown
+  ChevronDown,
+  Activity,
+  Flame,
+  Thermometer,
+  Box
 } from 'lucide-react';
 import { 
   COMPANY_INFO, 
@@ -32,6 +36,58 @@ export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState('Semua');
   const [selectedPortfolioItem, setSelectedPortfolioItem] = useState(null);
   const [activeFaq, setActiveFaq] = useState(null);
+  
+  // Interactive Hero Showcase Material Switcher
+  const [heroMaterial, setHeroMaterial] = useState('carbon');
+
+  const heroMaterialSpecs = {
+    carbon: {
+      name: 'PA-CF (Carbon Fiber Reinforced)',
+      job: '#ORD-68 Drone Chassis Arm',
+      nozzle: '250°C',
+      bed: '90°C',
+      speed: '300 mm/s',
+      layer: '0.12 mm',
+      tag: 'Kekuatan Setara Logam',
+      color: '#38bdf8',
+      image: 'https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=800&q=80'
+    },
+    resin: {
+      name: 'SLA Tough Resin 8K Ultra Micron',
+      job: '#ORD-66 Master Miniatur 8K',
+      nozzle: 'UV 405nm',
+      bed: 'Chamber 28°C',
+      speed: 'Ultra Detail',
+      layer: '0.025 mm',
+      tag: 'Bebas Garis Lapisan',
+      color: '#c084fc',
+      image: 'https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=800&q=80'
+    },
+    petg: {
+      name: 'PETG Industrial Impact-Resistant',
+      job: '#ORD-69 Enclosure Elektronik',
+      nozzle: '235°C',
+      bed: '75°C',
+      speed: '320 mm/s',
+      layer: '0.16 mm',
+      tag: 'Tahan Kimia & Benturan',
+      color: '#34d399',
+      image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=800&q=80'
+    },
+    tpu: {
+      name: 'TPU Flexible 95A Rubberized',
+      job: '#ORD-65 Damper Getaran Motor',
+      nozzle: '220°C',
+      bed: '50°C',
+      speed: '120 mm/s',
+      layer: '0.20 mm',
+      tag: 'Karet Elastis Tahan Robek',
+      color: '#f43f5e',
+      image: 'https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80'
+    }
+  };
+
+  const currentHero = heroMaterialSpecs[heroMaterial];
 
   const categories = ['Semua', 'Industri & Robotika', 'Arsitektur', 'Miniatur & Seni', 'Rapid Prototyping'];
 
@@ -43,107 +99,231 @@ export default function HomePage() {
     <div className="relative pt-24 pb-20 overflow-hidden">
       
       {/* =========================================================================
-          HERO SECTION
+          HERO SECTION (EXPANSIVE 2-COLUMN WIDESCREEN SHOWCASE)
       ========================================================================= */}
-      <section className="relative px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto pt-8 pb-16 lg:pt-16 lg:pb-24">
-        {/* Glow Effects */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[450px] bg-brand-500/15 dark:bg-brand-500/20 blur-[150px] rounded-full pointer-events-none -z-10" />
-        <div className="absolute top-1/3 right-10 w-[500px] h-[350px] bg-accent-500/10 blur-[120px] rounded-full pointer-events-none -z-10" />
+      <section className="relative px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto pt-6 pb-16 lg:pt-12 lg:pb-24">
+        
+        {/* Glow ambient background lights */}
+        <div className="absolute top-1/4 left-1/4 w-[700px] h-[450px] bg-brand-500/15 dark:bg-brand-500/20 blur-[160px] rounded-full pointer-events-none -z-10" />
+        <div className="absolute top-1/3 right-1/4 w-[600px] h-[400px] bg-accent-500/15 blur-[150px] rounded-full pointer-events-none -z-10" />
 
-        <div className="text-center max-w-5xl mx-auto space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-center">
           
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-xs font-mono font-medium text-slate-800 dark:text-slate-300 shadow-sm animate-fadeIn">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
-            </span>
-            <span>Jasa 3D Printing Presisi Tinggi &bull; Didukung Otomasi GooOS</span>
+          {/* LEFT COLUMN: HEADLINE, DESCRIPTION, CTAS & STATS (COL 1-7) */}
+          <div className="lg:col-span-7 space-y-6">
+            
+            {/* Live Status Badge */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-xs font-mono font-medium text-slate-800 dark:text-slate-300 shadow-sm animate-fadeIn">
+              <span className="flex h-2.5 w-2.5 relative">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span>GooOS Farm Online &bull; 3 Mesin Aktif &bull; Presisi 0.05 mm</span>
+            </div>
+
+            {/* Main Title */}
+            <h1 className="text-4xl sm:text-6xl xl:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]">
+              Wujudkan Inovasi Nyata Melalui Presisi{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-cyan-400 to-accent-400">
+                3D Printing
+              </span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+              Layanan manufaktur aditif profesional (FDM &amp; SLA Resin 8K) dengan akurasi sub-milimeter, pilihan 15+ material industri, terintegrasi penuh dengan ekosistem sistem operasi pintar <strong>3DFlow</strong> &amp; <strong>GOO-Studio</strong> untuk otomatisasi batching produksi cepat.
+            </p>
+
+            {/* CTAs */}
+            <div className="pt-2 flex flex-wrap items-center gap-4">
+              <a
+                href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent('Halo Goocanan, saya ingin konsultasi proyek 3D printing.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-500 to-accent-500 hover:from-brand-600 hover:to-accent-600 text-white font-bold text-base shadow-glow-cyan hover:shadow-glow-combo flex items-center justify-center gap-3 transition-all transform active:scale-95"
+              >
+                <MessageCircle className="w-5 h-5" />
+                <span>Konsultasikan Proyek Anda</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href="#estimator"
+                className="px-8 py-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-white font-bold text-base border border-slate-300 dark:border-slate-800 shadow-md flex items-center justify-center gap-2.5 transition"
+              >
+                <Sliders className="w-5 h-5 text-brand-500" />
+                <span>Hitung Estimasi Biaya</span>
+              </a>
+
+              <Link
+                to="/gooos"
+                className="px-6 py-4 rounded-2xl bg-accent-500/10 hover:bg-accent-500/20 text-accent-600 dark:text-accent-400 font-bold text-sm border border-accent-500/30 flex items-center justify-center gap-2 transition"
+              >
+                <Cpu className="w-4 h-4" />
+                <span>Jelajahi GooOS Suite</span>
+              </Link>
+            </div>
+
+            {/* Key Stats Counter Grid */}
+            <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-3.5">
+              <div className="p-4 rounded-2xl bg-white/70 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm backdrop-blur-sm">
+                <span className="block text-2xl sm:text-3xl font-extrabold font-mono text-brand-600 dark:text-brand-400">
+                  500+
+                </span>
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
+                  Proyek &amp; Prototipe Selesai
+                </span>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white/70 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm backdrop-blur-sm">
+                <span className="block text-2xl sm:text-3xl font-extrabold font-mono text-accent-600 dark:text-accent-400">
+                  0.05 mm
+                </span>
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
+                  Toleransi Presisi Maksimal
+                </span>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white/70 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm backdrop-blur-sm">
+                <span className="block text-2xl sm:text-3xl font-extrabold font-mono text-brand-600 dark:text-brand-400">
+                  128 Spul
+                </span>
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
+                  Inventaris Filamen Terdata
+                </span>
+              </div>
+
+              <div className="p-4 rounded-2xl bg-white/70 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm backdrop-blur-sm">
+                <span className="block text-2xl sm:text-3xl font-extrabold font-mono text-accent-600 dark:text-accent-400">
+                  99.8%
+                </span>
+                <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
+                  Tingkat Sukses Cetak QC
+                </span>
+              </div>
+            </div>
+
           </div>
 
-          {/* Main Headline */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]">
-            Wujudkan Inovasi Nyata Melalui Presisi{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-cyan-400 to-accent-400">
-              3D Printing
-            </span>
-          </h1>
+          {/* RIGHT COLUMN: INTERACTIVE 3D PRINT & SMART FARM SHOWCASE CARD (COL 8-12) */}
+          <div className="lg:col-span-5 relative">
+            <div className="relative rounded-3xl bg-slate-900/90 border border-brand-500/40 p-5 sm:p-7 shadow-2xl backdrop-blur-xl text-white overflow-hidden">
+              
+              {/* Card Ambient Glow */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-brand-500/15 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Subheadline */}
-          <p className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-4xl mx-auto leading-relaxed">
-            {COMPANY_INFO.subheadline}
-          </p>
+              {/* Showcase Top Bar */}
+              <div className="flex items-center justify-between pb-4 border-b border-slate-800 text-xs font-mono">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span className="font-bold text-slate-200">Live Print Farm Telemetry</span>
+                </div>
+                <span className="px-2 py-0.5 rounded bg-brand-500/20 text-brand-300 text-[10px] border border-brand-500/30">
+                  GooOS Active
+                </span>
+              </div>
 
-          {/* Hero CTAs */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={`https://wa.me/${COMPANY_INFO.whatsappNumber}?text=${encodeURIComponent('Halo Goocanan, saya ingin konsultasi proyek 3D printing.')}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-500 to-accent-500 hover:from-brand-600 hover:to-accent-600 text-white font-bold text-base shadow-glow-cyan hover:shadow-glow-combo flex items-center justify-center gap-3 transition-all transform active:scale-95"
-            >
-              <MessageCircle className="w-5 h-5" />
-              <span>Konsultasikan Proyek Anda</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
+              {/* Showcase Visual Viewport */}
+              <div className="relative my-4 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden h-60 sm:h-72 flex items-center justify-center group">
+                <img 
+                  src={currentHero.image} 
+                  alt={currentHero.name} 
+                  className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
 
-            <a
-              href="#estimator"
-              className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-white font-bold text-base border border-slate-200 dark:border-slate-800 shadow-md flex items-center justify-center gap-2.5 transition"
-            >
-              <Sliders className="w-5 h-5 text-brand-500" />
-              <span>Hitung Estimasi Biaya</span>
-            </a>
+                {/* Overlaid Live Badges */}
+                <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
+                  <span className="px-2.5 py-1 rounded-lg bg-slate-900/80 backdrop-blur-md text-[11px] font-mono text-cyan-300 border border-slate-700">
+                    Layer: {currentHero.layer}
+                  </span>
+                  <span className="px-2.5 py-1 rounded-lg bg-emerald-500/20 backdrop-blur-md text-[11px] font-mono text-emerald-300 border border-emerald-500/30">
+                    {currentHero.tag}
+                  </span>
+                </div>
 
-            <Link
-              to="/gooos"
-              className="w-full sm:w-auto px-6 py-4 rounded-2xl bg-accent-500/10 hover:bg-accent-500/20 text-accent-600 dark:text-accent-400 font-bold text-sm border border-accent-500/30 flex items-center justify-center gap-2 transition"
-            >
-              <Cpu className="w-4 h-4" />
-              <span>Jelajahi GooOS</span>
-            </Link>
-          </div>
+                <div className="absolute bottom-3 left-3 right-3">
+                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
+                    Active Production Job:
+                  </span>
+                  <div className="text-sm font-bold font-mono text-white truncate">
+                    {currentHero.job}
+                  </div>
+                  <span className="text-xs text-brand-300 font-mono">
+                    {currentHero.name}
+                  </span>
+                </div>
+              </div>
 
-          {/* Key Stats Counter Grid */}
-          <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <div className="p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 backdrop-blur-sm">
-              <span className="block text-2xl sm:text-3xl font-extrabold font-mono text-brand-600 dark:text-brand-400">
-                500+
-              </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                Proyek &amp; Prototipe Selesai
-              </span>
-            </div>
+              {/* Interactive Material Selector Tabs */}
+              <div className="space-y-2">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 block font-semibold">
+                  Pilih Material Untuk Simulasi Spek:
+                </span>
+                <div className="grid grid-cols-4 gap-1.5 text-[11px] font-mono">
+                  {[
+                    { id: 'carbon', label: 'Carbon CF' },
+                    { id: 'resin', label: 'Resin 8K' },
+                    { id: 'petg', label: 'PETG' },
+                    { id: 'tpu', label: 'TPU Flex' },
+                  ].map((m) => (
+                    <button
+                      key={m.id}
+                      type="button"
+                      onClick={() => setHeroMaterial(m.id)}
+                      className={`py-2 px-1 rounded-xl text-center font-bold border transition ${
+                        heroMaterial === m.id
+                          ? 'bg-brand-500 text-white border-brand-400 shadow-glow-cyan'
+                          : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
+                      }`}
+                    >
+                      {m.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-            <div className="p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 backdrop-blur-sm">
-              <span className="block text-2xl sm:text-3xl font-extrabold font-mono text-accent-600 dark:text-accent-400">
-                0.05 mm
-              </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                Presisi Toleransi Maksimal
-              </span>
-            </div>
+              {/* Live Sensor Metrics Grid */}
+              <div className="grid grid-cols-3 gap-2 pt-4 mt-4 border-t border-slate-800 text-xs font-mono">
+                <div className="p-2 rounded-xl bg-slate-950 border border-slate-800/80">
+                  <span className="text-[10px] text-slate-500 block flex items-center gap-1">
+                    <Flame className="w-3 h-3 text-orange-400" /> Nozzle/UV
+                  </span>
+                  <span className="font-bold text-white">{currentHero.nozzle}</span>
+                </div>
 
-            <div className="p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 backdrop-blur-sm">
-              <span className="block text-2xl sm:text-3xl font-extrabold font-mono text-brand-600 dark:text-brand-400">
-                16 Nodes
-              </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                GooOS Active Farm Fleet
-              </span>
-            </div>
+                <div className="p-2 rounded-xl bg-slate-950 border border-slate-800/80">
+                  <span className="text-[10px] text-slate-500 block flex items-center gap-1">
+                    <Thermometer className="w-3 h-3 text-brand-400" /> Heatbed
+                  </span>
+                  <span className="font-bold text-white">{currentHero.bed}</span>
+                </div>
 
-            <div className="p-4 rounded-2xl bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 backdrop-blur-sm">
-              <span className="block text-2xl sm:text-3xl font-extrabold font-mono text-accent-600 dark:text-accent-400">
-                15+
-              </span>
-              <span className="text-xs text-slate-500 dark:text-slate-400 font-mono">
-                Material Rekayasa Pilihan
-              </span>
+                <div className="p-2 rounded-xl bg-slate-950 border border-slate-800/80">
+                  <span className="text-[10px] text-slate-500 block flex items-center gap-1">
+                    <Activity className="w-3 h-3 text-emerald-400" /> Kecepatan
+                  </span>
+                  <span className="font-bold text-emerald-400">{currentHero.speed}</span>
+                </div>
+              </div>
+
+              {/* Direct Scroll to Cost Estimator */}
+              <div className="pt-4 mt-4 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
+                <span className="text-slate-400">Ingin cetak dengan bahan ini?</span>
+                <a
+                  href="#estimator"
+                  className="text-brand-400 hover:text-brand-300 font-bold flex items-center gap-1"
+                >
+                  <span>Buka Kalkulator Biaya</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+
             </div>
           </div>
 
         </div>
+
       </section>
 
       {/* =========================================================================
@@ -495,11 +675,11 @@ export default function HomePage() {
           FINAL BOTTOM CTA
       ========================================================================= */}
       <section className="py-12 px-4 sm:px-8 lg:px-12 xl:px-16 w-full max-w-[1720px] mx-auto">
-        <div className="rounded-3xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 p-8 sm:p-12 text-center space-y-6">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+        <div className="rounded-3xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 p-8 sm:p-14 text-center space-y-6">
+          <h3 className="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
             Siap Merealisasikan Ide Desain Anda Menjadi Produk Nyata?
           </h3>
-          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-2xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base max-w-3xl mx-auto">
             Kirimkan file 3D Anda hari ini untuk mendapatkan evaluasi toleransi, saran orientasi cetak, dan penawaran harga terbaik dari tim engineer Goocanan.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
