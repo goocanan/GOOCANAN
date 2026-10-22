@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { COMPANY_INFO } from '../data/goocananData';
+import GoocananLogo from './GoocananLogo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,21 +55,9 @@ export default function Navbar() {
       <div className="w-full max-w-[1720px] mx-auto px-4 sm:px-8 lg:px-12 xl:px-16">
         <div className="flex items-center justify-between">
           
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-accent-500 p-0.5 shadow-glow-cyan group-hover:shadow-glow-combo transition-all duration-300">
-              <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
-                <Printer className="w-5 h-5 text-brand-400 group-hover:scale-110 transition-transform duration-300" />
-              </div>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-extrabold text-xl tracking-wider text-slate-900 dark:text-white flex items-center gap-1 font-mono">
-                GOO<span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-accent-400">CANAN</span>
-              </span>
-              <span className="text-[10px] tracking-widest uppercase font-mono text-slate-500 dark:text-slate-400 -mt-1">
-                3D PRINT &amp; GooOS
-              </span>
-            </div>
+          {/* Official GOOCANAN Logo */}
+          <Link to="/" className="flex items-center group">
+            <GoocananLogo variant="horizontal" subtitle="3D PRINT &amp; TECH" />
           </Link>
 
           {/* Desktop Navigation */}

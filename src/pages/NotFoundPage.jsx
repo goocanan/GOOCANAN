@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, Home, Printer } from 'lucide-react';
+import { ArrowLeft, Home } from 'lucide-react';
+import { GoocananMark } from '../components/GoocananLogo';
 
 export default function NotFoundPage() {
   return (
     <div className="min-h-[75vh] flex items-center justify-center px-4 py-24 text-center">
       <div className="max-w-md space-y-6">
-        <div className="w-20 h-20 rounded-3xl bg-brand-500/10 text-brand-500 flex items-center justify-center mx-auto shadow-glow-cyan">
-          <Printer className="w-10 h-10 animate-bounce" />
+        <div className="w-20 h-20 rounded-3xl bg-slate-900 border border-brand-500/30 flex items-center justify-center mx-auto shadow-glow-cyan p-4">
+          <GoocananMark className="w-12 h-12 text-brand-400 animate-pulse" gradient={true} />
         </div>
         <div className="space-y-2">
           <span className="font-mono text-xs text-brand-500 font-bold tracking-widest uppercase">

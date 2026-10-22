@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="gooGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="22" fill="#090d16" />
+  <g transform="translate(18, 16) scale(0.4539, 0.4658)">
+    <path fill="url(#gooGrad)" d="M 129 0 L 33 0 L 27 1 L 21 3 L 13 8 L 6 15 L 2 22 L 0 28 L 0 43 L 2 49 L 5 55 L 16 71 L 22 82 L 30 93 L 34 101 L 59 140 L 63 144 L 65 145 L 71 145 L 75 142 L 79 136 L 81 131 L 85 126 L 87 121 L 91 116 L 93 111 L 97 106 L 99 101 L 103 96 L 105 91 L 109 86 L 113 79 L 114 76 L 114 73 L 111 69 L 108 68 L 47 68 L 45 66 L 41 59 L 38 56 L 30 44 L 27 38 L 27 35 L 29 31 L 32 28 L 37 26 L 131 26 L 134 24 L 139 19 L 140 16 L 140 10 L 139 7 L 134 2 Z" />
+  </g>
+</svg>

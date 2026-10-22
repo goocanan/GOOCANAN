@@ -38,6 +38,7 @@ import {
 import CostEstimator from '../components/CostEstimator';
 import PortfolioModal from '../components/PortfolioModal';
 import { ShopeeIcon, TokopediaIcon } from '../components/SocialIcons';
+import { GoocananMark } from '../components/GoocananLogo';
 
 export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState('Semua');
@@ -241,8 +242,9 @@ export default function HomePage() {
 
               {/* Showcase Top Bar */}
               <div className="flex items-center justify-between pb-3.5 border-b border-slate-800 text-xs font-mono">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <div className="flex items-center gap-2.5">
+                  <GoocananMark className="w-4 h-4 text-brand-400" gradient={true} />
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                   <span className="font-bold text-slate-200">Creality Hi &amp; Bambu Lab A1 Mini</span>
                 </div>
                 <span className="px-2 py-0.5 rounded bg-brand-500/20 text-brand-300 text-[10px] border border-brand-500/30 font-semibold">

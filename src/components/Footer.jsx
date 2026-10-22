@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { InstagramIcon, TikTokIcon, ShopeeIcon, TokopediaIcon } from './SocialIcons';
 import { COMPANY_INFO } from '../data/goocananData';
+import GoocananLogo from './GoocananLogo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -29,15 +30,8 @@ export default function Footer() {
           
           {/* Brand Info & Vision (Col 1-4) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-accent-500 p-0.5 shadow-glow-cyan">
-                <div className="w-full h-full bg-slate-900 rounded-[10px] flex items-center justify-center">
-                  <Printer className="w-5 h-5 text-brand-400" />
-                </div>
-              </div>
-              <span className="font-extrabold text-2xl tracking-wider text-slate-900 dark:text-white font-mono">
-                GOO<span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-accent-400">CANAN</span>
-              </span>
+            <Link to="/" className="inline-block group">
+              <GoocananLogo variant="horizontal" subtitle="3D PRINTING &amp; TECH" />
             </Link>
             
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
